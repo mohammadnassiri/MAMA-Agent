@@ -68,28 +68,6 @@ class Executor:
         return self.process.returncode, self.stdout, self.stderr
 
 
-class PEInfo:
-    # author: https://github.com/nheijmans/malzoo/blob/master/malzoo/modules/tools/pe.py
-    def __init__(self, filename):
-        try:
-            self.pe = pefile.PE(filename)
-            self.filename = filename
-
-        except pefile.PEFormatError:
-            self.pe = False
-            pass
-
-    def get_cpu_type(self):
-        """ Return the CPU architecture (x86, x64) """
-        if self.pe:
-            machine = 0
-            machine = self.pe.FILE_HEADER.Machine
-
-            return pefile.MACHINE_TYPE[machine]
-        else:
-            return None
-
-
 class Trace:
     def __init__(self, pin_path, wao_path, file_path, arch, timeout=None):
         self.pin_path = pin_path
