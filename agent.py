@@ -11,12 +11,14 @@ class Server:
 
     # author: https://gist.github.com/Integralist/3f004c3594bbf8431c15ed6db15809ae
 
-    def __init__(self, url):
+    def __init__(self, url, vbox):
         self.url = url
+        self.vbox = vbox
 
     def request(self):
         result = None
-        req = requests.post(self.url, data={'arch': "IMAGE_FILE_MACHINE_I386"})  # IMAGE_FILE_MACHINE_I386 is x86
+        url = self.url + 'request'
+        req = requests.post(url, data={'arch': "IMAGE_FILE_MACHINE_I386", 'vbox': self.vbox})  # IMAGE_FILE_MACHINE_I386 is x86
         if req.status_code == 200:
             result = req
         return result
@@ -26,7 +28,7 @@ class Server:
         url = self.url + 'download'
         with open(name, "wb") as file:
             # get request
-            req = requests.post(url, data={'id': id})
+            req = requests.post(url, data={'id': id, 'vbox': vbox})
             if not req.status_code == 404:
                 # write to file
                 file.write(req.content)
@@ -40,6 +42,7 @@ class Server:
         if run_pe_file is not None:
             req = requests.post(url,
                                 data={
+                                    'vbox': vbox,
                                     'id': id,
                                     'response': response,
                                     'sequence': sequence,
@@ -53,6 +56,7 @@ class Server:
         elif screen_shot is not None:
             req = requests.post(url,
                                 data={
+                                    'vbox': vbox,
                                     'id': id,
                                     'response': response,
                                     'sequence': sequence,
@@ -64,6 +68,7 @@ class Server:
         else:
             req = requests.post(url,
                                 data={
+                                    'vbox': vbox,
                                     'id': id,
                                     'response': response,
                                     'sequence': sequence,
@@ -137,7 +142,7 @@ class Trace:
                         status = 1
                         y = y.decode('ascii')
                         z = z.decode('ascii')
-            except Exception:
+            except Exception as e:
                 status = 0
         return status, x, y, z
 
@@ -153,9 +158,10 @@ def __screen_shot(timeout):
 if __name__ == '__main__':
 
     # configuration
+    vbox = "win7-1"
     timeout = 10
     screen_shot_time = 5
-    server = Server('http://localhost:8000/api/')
+    server = Server('http://localhost:8000/api/', vbox)
     this_pin_path = "C:/Users/MA/Desktop/work/api-seq-tools/pin-2.14-71313-msvc9-windows/"
     this_wao_path = "C:/Users/MA/Desktop/work/api-seq-tools/WinAPIOverride32.exe"
     wao_pin = 1  # 0 for wao and 1 for pin
