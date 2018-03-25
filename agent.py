@@ -2,8 +2,7 @@ import os
 import subprocess
 import shlex
 import threading
-import urllib
-import pefile
+import pyautogui
 import requests
 import time
 
@@ -16,19 +15,49 @@ class Server:
         self.url = url
 
     def request(self):
-        response = None
-        r = requests.post(self.url, data={'arch': "IMAGE_FILE_MACHINE_I386"})  # IMAGE_FILE_MACHINE_I386 is x86
-        if r.status_code == 200:
-            response = r
-        return response
+        result = None
+        req = requests.post(self.url, data={'arch': "IMAGE_FILE_MACHINE_I386"})  # IMAGE_FILE_MACHINE_I386 is x86
+        if req.status_code == 200:
+            result = req
+        return result
 
     def download(self, id, name):
-        status = False
-        url = self.url + '/download'
-        file = urllib.URLopener()
-        if file.retrieve(url, name):
-            status = True
-        return status
+        result = None
+        url = self.url + 'download'
+        with open(name, "wb") as file:
+            # get request
+            req = requests.post(url, data={'id': id})
+            if not req.status_code == 404:
+                # write to file
+                file.write(req.content)
+        if os.path.getsize(name) > 0:
+            result = file
+        return result
+
+    def result(self, id, response, sequence, run_pe_file, run_pe_sequence, screen_shot, run_pe):
+        result = None
+        url = self.url + 'result'
+        if run_pe_file is not None:
+            req = requests.post(url, data={
+                'id': id,
+                'response': response,
+                'sequence': sequence,
+                'run_pe_file': {'file': open(run_pe_file, 'rb')},
+                'run_pe_sequence': run_pe_sequence,
+                'screen_shot': {'file': open(screen_shot, 'rb')},
+                'run_pe': run_pe
+            })
+        else:
+            req = requests.post(url, data={
+                'id': id,
+                'response': response,
+                'sequence': sequence,
+                'screen_shot': {'file': open(screen_shot, 'rb')},
+                'run_pe': 0
+            })
+        if req.status_code == 200:
+            result = req
+        return result
 
 
 class Executor:
@@ -81,7 +110,8 @@ class Trace:
 
     def pintool(self):
         if self.arch is "IMAGE_FILE_MACHINE_I386":
-            print(self.pin_path + "ia32/bin/pin -t " + self.pin_path + "source/tools/godware/obj-ia32/godware.dll -- " + self.file_path + " " + self.pin_path + "source/tools/godware/msgbox.exe")
+            print(
+                self.pin_path + "ia32/bin/pin -t " + self.pin_path + "source/tools/godware/obj-ia32/godware.dll -- " + self.file_path + " " + self.pin_path + "source/tools/godware/msgbox.exe")
             x, y, z = Executor(
                 self.pin_path + "ia32/bin/pin -t " + self.pin_path + "source/tools/godware/obj-ia32/godware.dll -- " + self.file_path + " " + self.pin_path + "source/tools/godware/msgbox.exe",
                 self.timeout).run()
@@ -94,33 +124,69 @@ class Trace:
                     print('OK :)')
 
 
+def __get_screen_shot_(timeout):
+    thread = threading.Thread(target=__screen_shot(timeout))
+    thread.start()
+    thread.join()
+
+
+def __screen_shot(timeout):
+    time.sleep(timeout)
+    pic = pyautogui.screenshot()
+    pic.save('screenshot.png')
+
+
 if __name__ == '__main__':
 
-    the_end = 120
+    # configuration
+    timeout = 120
+    scree_shot_time = 30
     server = Server('http://localhost:8000/api/')
+    wao_pin = 1  # 0 for wao and 1 for pin
+    response = None
+    file = None
 
     # wait for 120 seconds to if a new file uploaded. it must be infinite loop in production
-    while the_end > 0:
+    while 1:
         response = server.request().json()
-        if response is not None:
+        if not response == 0:
             break
-        the_end -= 1
+        print("No file provided. Will try after 1 second.")
         time.sleep(1)
 
     file_id = response['id']
     file_name = response['name']
     file_arch = response['arch']
+    file = server.download(file_id, file_name)
+    if file is None:
+        result = "Can't download file"
+        print(result)
+    else:
+        # get a screenshot
+        __get_screen_shot_(scree_shot_time)
 
-    # set path of two tools and the file that will be traced
-    pin_path = "C:/Users/MA/Desktop/work/api-seq-tools/pin-2.14-71313-msvc9-windows/"
-    file_path = pin_path + "/source/tools/godware/poc2.exe"
+        # set path of two tools and the file that will be traced
+        pin_path = "C:/Users/MA/Desktop/work/api-seq-tools/pin-2.14-71313-msvc9-windows/"
+        file_path = pin_path + "/source/tools/godware/poc2.exe"
 
-    # we will first check the runpe for all samples then in second phase we will trace with wao
-    trace = Trace(pin_path, "", file_path, 120)
+        # we will first check the runpe for all samples then in second phase we will trace with wao
+        trace = Trace(pin_path, "", file_path, file_arch, timout)
 
-    # trace file with pintool for runpe
-    #trace.pintool()
+        # trace file with wao. there must be only one option wao or pin. the vm must revert before other test.
+        sequence = ""
+        if wao_pin == 0:
+            print(0)
+            # sequence = trace.wao()
 
-    # trace file with wao. there must be only one option wao or pin. the vm must revert before other test.
-    #trace.wao()
+        # trace file with pintool for runpe
+        run_pe = 0
+        run_pe_file = None
+        run_pe_sequence = ""
+        if wao_pin == 1:
+            print(1)
+            # runpe, runpe_file, runpe_sequence = trace.pintool()
 
+        result = "Process Done."
+
+        # sending results
+        # result = server.result(file_id, result, sequence, run_pe_file, run_pe_sequence, screen_shot, run_pe)
