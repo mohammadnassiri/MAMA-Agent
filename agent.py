@@ -38,30 +38,37 @@ class Server:
         result = None
         url = self.url + 'result'
         if run_pe_file is not None:
-            req = requests.post(url, data={
-                'id': id,
-                'response': response,
-                'sequence': sequence,
-                'run_pe_file': {'file': open(run_pe_file, 'rb')},
-                'run_pe_sequence': run_pe_sequence,
-                'screen_shot': {'file': open(screen_shot, 'rb')},
-                'run_pe': run_pe
-            })
+            req = requests.post(url,
+                                data={
+                                    'id': id,
+                                    'response': response,
+                                    'sequence': sequence,
+                                    'run_pe_sequence': run_pe_sequence,
+                                    'run_pe': run_pe
+                                },
+                                files={
+                                    'run_pe_file': open(run_pe_file, 'rb'),
+                                    'screen_shot': open(screen_shot, 'rb'),
+                                })
         elif screen_shot is not None:
-            req = requests.post(url, data={
-                'id': id,
-                'response': response,
-                'sequence': sequence,
-                'screen_shot': {'file': open(screen_shot, 'rb')},
-                'run_pe': run_pe
-            })
+            req = requests.post(url,
+                                data={
+                                    'id': id,
+                                    'response': response,
+                                    'sequence': sequence,
+                                    'run_pe': run_pe
+                                },
+                                files={
+                                    'screen_shot': open(screen_shot, 'rb')
+                                })
         else:
-            req = requests.post(url, data={
-                'id': id,
-                'response': response,
-                'sequence': sequence,
-                'run_pe': run_pe
-            })
+            req = requests.post(url,
+                                data={
+                                    'id': id,
+                                    'response': response,
+                                    'sequence': sequence,
+                                    'run_pe': run_pe
+                                })
         if req.status_code == 200:
             result = req
         return result
@@ -95,7 +102,6 @@ class Executor:
     def run(self):
         thread = threading.Thread(target=self.target)
         thread.start()
-
         thread.join(self.timeout)
         if thread.is_alive():
             self.process.terminate()
@@ -116,49 +122,54 @@ class Trace:
         return
 
     def pintool(self):
-        if self.arch is "IMAGE_FILE_MACHINE_I386":
-            print(
-                self.pin_path + "ia32/bin/pin -t " + self.pin_path + "source/tools/godware/obj-ia32/godware.dll -- " + self.file_path + " " + self.pin_path + "source/tools/godware/msgbox.exe")
-            x, y, z = Executor(
-                self.pin_path + "ia32/bin/pin -t " + self.pin_path + "source/tools/godware/obj-ia32/godware.dll -- " + self.file_path + " " + self.pin_path + "source/tools/godware/msgbox.exe",
-                self.timeout).run()
-            print(x)
-            if x is not None:
-                print(y.decode('ascii'))
-                print(z.decode('ascii'))
-                if "We've finished dumping the remote process." in y.decode('ascii') and os.stat(
-                        "logz.txt").st_size > 0:
-                    print('OK :)')
-
-
-def __get_screen_shot_(timeout):
-    thread = threading.Thread(target=__screen_shot(timeout))
-    thread.start()
-    thread.join()
+        status = 0
+        x = ""
+        y = ""
+        z = ""
+        if self.arch == "IMAGE_FILE_MACHINE_I386":
+            try:
+                x, y, z = Executor(
+                    self.pin_path + "ia32/bin/pin -t " + self.pin_path + "source/tools/godware/obj-ia32/godware.dll -- " + self.file_path + " " + self.pin_path + "source/tools/godware/msgbox.exe",
+                    self.timeout).run()
+                if x is not None:
+                    if "We've finished dumping the remote process." in y.decode('ascii') and os.stat(
+                            "logz.txt").st_size > 0:
+                        status = 1
+                        y = y.decode('ascii')
+                        z = z.decode('ascii')
+            except Exception:
+                status = 0
+        return status, x, y, z
 
 
 def __screen_shot(timeout):
+    name = 'screenshot.png'
     time.sleep(timeout)
     pic = pyautogui.screenshot()
-    pic.save('screenshot.png')
+    pic.save(name)
+    return name
 
 
 if __name__ == '__main__':
 
     # configuration
-    timeout = 120
-    scree_shot_time = 30
+    timeout = 10
+    screen_shot_time = 5
     server = Server('http://localhost:8000/api/')
+    this_pin_path = "C:/Users/MA/Desktop/work/api-seq-tools/pin-2.14-71313-msvc9-windows/"
+    this_wao_path = "C:/Users/MA/Desktop/work/api-seq-tools/WinAPIOverride32.exe"
     wao_pin = 1  # 0 for wao and 1 for pin
     response = None
     file = None
+    screen_shot = None
 
     # wait for 120 seconds to if a new file uploaded. it must be infinite loop in production
     while 1:
         response = server.request().json()
         if not response == 0:
+            print("(*) Got a file for trace ...")
             break
-        print("No file provided. Will try after 1 second.")
+        print("(!) No file provided. Will try after 1 second.")
         time.sleep(1)
 
     file_id = response['id']
@@ -166,35 +177,48 @@ if __name__ == '__main__':
     file_arch = response['arch']
     file = server.download(file_id, file_name)
     if file is None:
-        result = "Can't download file"
+        result = "(!) Can't download file"
         print(result)
         result = server.result(file_id, result, "", None, "", None, 0)
     else:
         # get a screenshot
-        __get_screen_shot_(scree_shot_time)
+        print("(*) Start screen shot thread ...")
+        screen_shot = "screenshot.png"
+        screen_shot_thread = threading.Thread(target=__screen_shot, args={screen_shot_time})
+        screen_shot_thread.start()
 
         # set path of two tools and the file that will be traced
-        pin_path = "C:/Users/MA/Desktop/work/api-seq-tools/pin-2.14-71313-msvc9-windows/"
-        file_path = pin_path + "/source/tools/godware/poc2.exe"
+        wao_path = this_wao_path
+        pin_path = this_pin_path
+        file_path = os.path.join(file_name)
 
         # we will first check the runpe for all samples then in second phase we will trace with wao
-        trace = Trace(pin_path, "", file_path, file_arch, timout)
+        trace = Trace(pin_path, wao_path, file_path, file_arch, timeout)
 
         # trace file with wao. there must be only one option wao or pin. the vm must revert before other test.
         sequence = ""
         if wao_pin == 0:
-            print(0)
-            # sequence = trace.wao()
+            print("(*) Start WAO thread ...")
+            # sequence = trace.wao() path this_wao_path
 
         # trace file with pintool for runpe
         run_pe = 0
         run_pe_file = None
         run_pe_sequence = ""
         if wao_pin == 1:
-            print(1)
-            # runpe, runpe_file, runpe_sequence = trace.pintool()
+            print("(*) Start Pin tool thread ...")
+            run_pe, x, y, z = trace.pintool()
+            print(x, y, z)
 
+        # final result
         result = "Process Done."
 
+        # check screen_shot threads
+        print("(*) Wait for screen shot thread ...")
+        screen_shot_thread.join()
+
         # sending results
-        # result = server.result(file_id, result, sequence, run_pe_file, run_pe_sequence, screen_shot, run_pe)
+        print("(*) Sending results ...")
+        result = server.result(file_id, result, sequence, run_pe_file, run_pe_sequence, screen_shot, run_pe)
+
+        print("(*) Done.")
