@@ -47,13 +47,20 @@ class Server:
                 'screen_shot': {'file': open(screen_shot, 'rb')},
                 'run_pe': run_pe
             })
-        else:
+        elif screen_shot is not None:
             req = requests.post(url, data={
                 'id': id,
                 'response': response,
                 'sequence': sequence,
                 'screen_shot': {'file': open(screen_shot, 'rb')},
-                'run_pe': 0
+                'run_pe': run_pe
+            })
+        else:
+            req = requests.post(url, data={
+                'id': id,
+                'response': response,
+                'sequence': sequence,
+                'run_pe': run_pe
             })
         if req.status_code == 200:
             result = req
@@ -161,6 +168,7 @@ if __name__ == '__main__':
     if file is None:
         result = "Can't download file"
         print(result)
+        result = server.result(file_id, result, "", None, "", None, 0)
     else:
         # get a screenshot
         __get_screen_shot_(scree_shot_time)
