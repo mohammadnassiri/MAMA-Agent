@@ -131,6 +131,8 @@ class Trace:
         x = ""
         y = ""
         z = ""
+        file = None
+        sequence = ""
         if self.arch == "IMAGE_FILE_MACHINE_I386":
             try:
                 x, y, z = Executor(
@@ -142,9 +144,11 @@ class Trace:
                         status = 1
                         y = y.decode('ascii')
                         z = z.decode('ascii')
+                        file = "logz.txt"
+                        sequence = y
             except Exception as e:
                 status = 0
-        return status, x, y, z
+        return status, file, sequence, x, y, z
 
 
 def __screen_shot(timeout):
@@ -213,7 +217,7 @@ if __name__ == '__main__':
         run_pe_sequence = ""
         if wao_pin == 1:
             print("(*) Start Pin tool thread ...")
-            run_pe, x, y, z = trace.pintool()
+            run_pe, run_pe_file, run_pe_sequence, x, y, z = trace.pintool()
             print(x, y, z)
 
         # final result
