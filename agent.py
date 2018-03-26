@@ -175,12 +175,15 @@ if __name__ == '__main__':
 
     # wait for 120 seconds to if a new file uploaded. it must be infinite loop in production
     while 1:
-        response = server.request().json()
-        if not response == 0:
-            print("(*) Got a file for trace ...")
-            break
-        print("(!) No file provided. Will try after 1 second.")
-        time.sleep(1)
+        try:
+            response = server.request().json()
+            if not response == 0:
+                print("(*) Got a file for trace ...")
+                break
+            print("(!) No file provided. Will try after 1 second.")
+            time.sleep(1)
+        except Exception as e:
+            continue
 
     file_id = response['id']
     file_name = response['name']
