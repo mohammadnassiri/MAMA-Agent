@@ -60,6 +60,7 @@ class Server:
                                     'id': id,
                                     'response': response,
                                     'sequence': sequence,
+                                    'run_pe_sequence': run_pe_sequence,
                                     'run_pe': run_pe
                                 },
                                 files={
@@ -72,6 +73,7 @@ class Server:
                                     'id': id,
                                     'response': response,
                                     'sequence': sequence,
+                                    'run_pe_sequence': run_pe_sequence,
                                     'run_pe': run_pe
                                 })
         if req.status_code == 200:
@@ -142,10 +144,10 @@ class Trace:
                     if "We've finished dumping the remote process." in y.decode('ascii') and os.stat(
                             "logz.txt").st_size > 0:
                         status = 1
-                        y = y.decode('ascii')
-                        z = z.decode('ascii')
                         file = "logz.txt"
-                        sequence = y
+                    y = y.decode('ascii')
+                    z = z.decode('ascii')
+                    sequence = y + z
             except Exception as e:
                 status = 0
         return status, file, sequence, x, y, z
