@@ -166,8 +166,9 @@ if __name__ == '__main__':
     timeout = 10
     screen_shot_time = 7
     server = Server('http://localhost:8000/api/', vbox)
+    current_dir = "C:/Users/MA/Desktop/work/vm-agent-server/agent/"
     this_pin_path = "C:/Users/MA/Desktop/work/api-seq-tools/pin-2.14-71313-msvc9-windows/"
-    this_wao_path = "C:/Users/MA/Desktop/work/api-seq-tools/WinAPIOverride32.exe"
+    this_wao_path = "C:/Users/MA/Desktop/work/api-seq-tools/winapioverride32_bin_6.3.0/"
     wao_pin = 1  # 0 for wao and 1 for pin
     response = None
     file = None
@@ -203,7 +204,7 @@ if __name__ == '__main__':
         # set path of two tools and the file that will be traced
         wao_path = this_wao_path
         pin_path = this_pin_path
-        file_path = os.path.join(file_name)
+        file_path = current_dir + file_name
 
         # we will first check the runpe for all samples then in second phase we will trace with wao
         trace = Trace(pin_path, wao_path, file_path, file_arch, timeout)
