@@ -136,7 +136,7 @@ class Trace:
         if self.arch == "IMAGE_FILE_MACHINE_I386":
             try:
                 x, y, z = Executor(
-                    self.pin_path + "ia32/bin/pin -t " + self.pin_path + "source/tools/godware/obj-ia32/godware.dll -- " + self.file_path + " " + self.pin_path + "source/tools/godware/msgbox.exe",
+                    self.pin_path + "ia32/bin/pin -t " + self.pin_path + "source/tools/godware/obj-ia32/godware.dll -- " + self.file_path,
                     self.timeout).run()
                 if x is not None:
                     if "We've finished dumping the remote process." in y.decode('ascii') and os.stat(
@@ -164,7 +164,7 @@ if __name__ == '__main__':
     # configuration
     vbox = "win7-1"
     timeout = 10
-    screen_shot_time = 5
+    screen_shot_time = 7
     server = Server('http://localhost:8000/api/', vbox)
     this_pin_path = "C:/Users/MA/Desktop/work/api-seq-tools/pin-2.14-71313-msvc9-windows/"
     this_wao_path = "C:/Users/MA/Desktop/work/api-seq-tools/WinAPIOverride32.exe"
