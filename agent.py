@@ -162,11 +162,12 @@ def __screen_shot(timeout):
 
 
 if __name__ == '__main__':
-
+    # sleep for create snapshot
+    time.sleep(15)
     # configuration
     vbox = "win7-1"
     timeout = 10
-    screen_shot_time = 7
+    screen_shot_time = 15
     server = Server('http://localhost:8000/api/', vbox)
     current_dir = "C:/Users/MA/Desktop/work/vm-agent-server/agent/"
     this_pin_path = "C:/Users/MA/Desktop/work/api-seq-tools/pin-2.14-71313-msvc9-windows/"
@@ -198,7 +199,7 @@ if __name__ == '__main__':
         result = server.result(file_id, result, "", None, "", None, 0)
     else:
         # get a screenshot
-        print("(*) Start screen shot thread ...")
+        print("(*) Start screenshot thread ...")
         screen_shot = "screenshot.png"
         screen_shot_thread = threading.Thread(target=__screen_shot, args={screen_shot_time})
         screen_shot_thread.start()
@@ -230,7 +231,7 @@ if __name__ == '__main__':
         result = "Process Done."
 
         # check screen_shot threads
-        print("(*) Wait for screen shot thread ...")
+        print("(*) Wait for screenshot thread ...")
         screen_shot_thread.join()
 
         # sending results
