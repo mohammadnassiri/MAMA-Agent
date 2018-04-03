@@ -39,43 +39,21 @@ class Server:
     def result(self, id, response, sequence, run_pe_file, run_pe_sequence, screen_shot, run_pe):
         result = None
         url = self.url + 'result'
+        data = {
+            'vbox': vbox,
+            'id': id,
+            'response': response,
+            'run_pe_sequence': run_pe_sequence,
+            'run_pe': run_pe
+        }
+        files = {}
+        if sequence is not None:
+            files['sequence'] = open(sequence, 'rb')
         if run_pe_file is not None:
-            req = requests.post(url,
-                                data={
-                                    'vbox': vbox,
-                                    'id': id,
-                                    'response': response,
-                                    'sequence': sequence,
-                                    'run_pe_sequence': run_pe_sequence,
-                                    'run_pe': run_pe
-                                },
-                                files={
-                                    'run_pe_file': open(run_pe_file, 'rb'),
-                                    'screen_shot': open(screen_shot, 'rb'),
-                                })
-        elif screen_shot is not None:
-            req = requests.post(url,
-                                data={
-                                    'vbox': vbox,
-                                    'id': id,
-                                    'response': response,
-                                    'sequence': sequence,
-                                    'run_pe_sequence': run_pe_sequence,
-                                    'run_pe': run_pe
-                                },
-                                files={
-                                    'screen_shot': open(screen_shot, 'rb')
-                                })
-        else:
-            req = requests.post(url,
-                                data={
-                                    'vbox': vbox,
-                                    'id': id,
-                                    'response': response,
-                                    'sequence': sequence,
-                                    'run_pe_sequence': run_pe_sequence,
-                                    'run_pe': run_pe
-                                })
+            files['run_pe_file'] = open(run_pe_file, 'rb')
+        if screen_shot is not None:
+            files['screen_shot'] = open(screen_shot, 'rb')
+        req = requests.post(url, data=data, files=files)
         if req.status_code == 200:
             result = req
         return result
@@ -118,15 +96,33 @@ class Executor:
 
 
 class Trace:
-    def __init__(self, pin_path, wao_path, file_path, arch, timeout=None):
+    def __init__(self, pin_path, wao_path, file_path, current_dir, arch, timeout=None):
         self.pin_path = pin_path
         self.wao_path = wao_path
         self.file_path = file_path
+        self.current_dir = current_dir
         self.arch = arch
         self.timeout = timeout
 
+
     def wao(self):
-        return
+        x = ""
+        y = ""
+        z = ""
+        sequence = None
+        try:
+            x, y, z = Executor(
+                self.wao_path + 'WinAPIOverride32.exe AppPath="' + self.file_path + '" MonitoringFiles="' + self.current_dir + 'wao.txt" NoGUI OnlyBaseModule StopAndKillAfter=120000 SavingFileName="wao-log.xml"',
+                self.timeout).run()
+            while not os.path.exists("wao-log.xml"):
+                time.sleep(1)
+            sequence = "wao-log.xml"
+            y = y.decode('ascii')
+            z = z.decode('ascii')
+        except Exception as e:
+            pass
+        return sequence, x, y, z
+
 
     def pintool(self):
         status = 0
@@ -163,17 +159,18 @@ def __screen_shot(timeout):
 
 if __name__ == '__main__':
     # sleep for create snapshot
-    #time.sleep(15)
+    # time.sleep(15)
     # configuration
     vbox = "win71"
     timeout = 120
-    screen_shot_time = 15
-    screen_shot_thread_time = 30
+    wao_thread_timeout = 150  # give some more time to terminate by itself
+    screen_shot_time = 10
+    screen_shot_thread_time = 20
     server = Server('http://localhost:8000/api/', vbox)
     current_dir = "C:/Users/MA/Desktop/work/vm-agent-server/agent/"
     this_pin_path = "C:/Users/MA/Desktop/work/api-seq-tools/pin-2.14-71313-msvc9-windows/"
     this_wao_path = "C:/Users/MA/Desktop/work/api-seq-tools/winapioverride32_bin_6.3.0/"
-    wao_pin = 1  # 0 for wao and 1 for pin
+    wao_pin = 0   # 0 for wao and 1 for pin
     response = None
     file = None
     screen_shot = None
@@ -211,13 +208,16 @@ if __name__ == '__main__':
         file_path = current_dir + file_name
 
         # we will first check the runpe for all samples then in second phase we will trace with wao
-        trace = Trace(pin_path, wao_path, file_path, file_arch, timeout)
+        if wao_pin == 0:
+            timeout = wao_thread_timeout
+        trace = Trace(pin_path, wao_path, file_path, current_dir, file_arch, timeout)
 
         # trace file with wao. there must be only one option wao or pin. the vm must revert before other test.
-        sequence = ""
+        sequence = None
         if wao_pin == 0:
             print("(*) Start WAO thread ...")
-            # sequence = trace.wao() path this_wao_path
+            sequence, x, y, z = trace.wao()
+            print("(*) WAO Done.")
 
         # trace file with pintool for runpe
         run_pe = 0
