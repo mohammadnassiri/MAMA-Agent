@@ -98,7 +98,8 @@ class Executor:
 
 
 class Trace:
-    def __init__(self, pin_path, wao_path, file_path, wao_current_dir, arch, timeout=None):
+    def __init__(self, file_name, pin_path, wao_path, file_path, wao_current_dir, arch, timeout=None):
+        self.file_name = file_name
         self.pin_path = pin_path
         self.wao_path = wao_path
         self.file_path = file_path
@@ -115,11 +116,11 @@ class Trace:
         try:
             monitor_file = self.wao_current_dir + "wao\\all.txt"
             x, y, z = Executor(
-                self.wao_path + 'WinAPIOverride32.exe AppPath="' + self.file_path + '" MonitoringFiles="' + monitor_file + '" NoGUI OnlyBaseModule StopAndKillAfter=120000 SavingFileName="wao-log.xml"',
+                self.wao_path + 'WinAPIOverride32.exe AppPath="' + self.file_path + '" MonitoringFiles="' + monitor_file + '" NoGUI OnlyBaseModule StopAndKillAfter=120000 SavingFileName="' + self.file_name + '.xml"',
                 self.timeout).run()
-            while not os.path.exists("wao-log.xml"):
+            while not os.path.exists(self.file_name + ".xml"):
                 time.sleep(1)
-            sequence = "wao-log.xml"
+            sequence = self.file_name + ".xml"
             y = y.decode('ascii')
             z = z.decode('ascii')
         except Exception as e:
@@ -144,7 +145,7 @@ class Trace:
                     if "We've finished dumping the remote process." in y.decode('ascii') and os.stat(
                             "logz.txt").st_size > 0:
                         status = 1
-                        file = "logz.txt"
+                        file = self.file_name + ".txt"
                     y = y.decode('ascii')
                     z = z.decode('ascii')
                     sequence = y + z
@@ -154,8 +155,7 @@ class Trace:
         return status, file, sequence, x, y, z
 
 
-def __screen_shot(timeout):
-    name = 'screenshot.png'
+def __screen_shot(name, timeout):
     time.sleep(timeout)
     pic = pyautogui.screenshot()
     pic.save(name)
@@ -206,8 +206,8 @@ if __name__ == '__main__':
     else:
         # get a screenshot
         print("(*) Start screenshot thread ...")
-        screen_shot = "screenshot.png"
-        screen_shot_thread = threading.Thread(target=__screen_shot, args={screen_shot_time})
+        screen_shot = file_name + ".png"
+        screen_shot_thread = threading.Thread(target=__screen_shot, args={screen_shot, screen_shot_time})
         screen_shot_thread.start()
 
         # set path of two tools and the file that will be traced
@@ -220,7 +220,7 @@ if __name__ == '__main__':
         # we will first check the runpe for all samples then in second phase we will trace with wao
         if wao_pin == 0:
             timeout = wao_thread_timeout
-        trace = Trace(pin_path, wao_path, file_path, current_dir, file_arch, timeout)
+        trace = Trace(file_name, pin_path, wao_path, file_path, current_dir, file_arch, timeout)
 
         # trace file with wao. there must be only one option wao or pin. the vm must revert before other test.
         sequence = None
