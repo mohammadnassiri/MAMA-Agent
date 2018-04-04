@@ -1,0 +1,19 @@
+
+WinAPIOverride32.exe AppPath="c:\windows\notepad.exe" MonitoringFiles="C:\Users\MA\Desktop\work\api-seq-tools\winapioverride32_bin_6.3.0\monitoring files\user32 7 x86.txt" NoGUI OnlyBaseModule StopAndKillAfter=5000 SavingFileName="C:\Users\MA\Desktop\test.xml"
+
+WinAPIOverride32.exe AppPath="C:\Users\MA\Desktop\work\vm-agent-server\agent\poc2.exe" MonitoringFiles="C:\Users\MA\Desktop\work\api-seq-tools\winapioverride32_bin_6.3.0\monitoring files\user32 7 x86.txt" NoGUI OnlyBaseModule StopAndKillAfter=120000 SavingFileName="C:\Users\MA\Desktop\test.xml"
+
+WinAPIOverride32.exe AppPath="C:\Users\MA\Desktop\work\dataset\benign\7zG.exe" MonitoringFiles="C:\Users\MA\Desktop\work\api-seq-tools\winapioverride32_bin_6.3.0\monitoring files\ntdll.txt" NoGUI OnlyBaseModule StopAndKillAfter=10000 SavingFileName="C:\Users\MA\Desktop\test.xml"
+
+WinAPIOverride32.exe AppPath="C:\Users\MA\Desktop\work\vm-agent-server\agent\7z.exe" MonitoringFiles="C:\Users\MA\Desktop\work\vm-agent-server\agent\wao\advapi32.txt";"C:\Users\MA\Desktop\work\vm-agent-server\agent\wao\kernel32.txt";"C:\Users\MA\Desktop\work\vm-agent-server\agent\wao\ntdll.txt";"C:\Users\MA\Desktop\work\vm-agent-server\agent\wao\User32.txt";"C:\Users\MA\Desktop\work\vm-agent-server\agent\wao\wininet.txt";"C:\Users\MA\Desktop\work\vm-agent-server\agent\wao\ws2_32.txt" NoGUI OnlyBaseModule StopAndKillAfter=5000 SavingFileName="C:\Users\MA\Desktop\test.xml"
+
+WinAPIOverride32.exe AppPath="C:\Users\MA\Desktop\work\vm-agent-server\agent\poc2.exe" MonitoringFiles="C:\Users\MA\Desktop\work\api-seq-tools\winapioverride32_bin_6.3.0\monitoring files\ntdll.txt" NoGUI OnlyBaseModule StopAndKillAfter=120000 SavingFileName="C:\Users\MA\Desktop\test.xml"
+
+
+C:\Users\MA\Desktop/work/api-seq-tools/winapioverride32_bin_6.3.0/WinAPIOverride32.exe AppPath="C:/Users/MA/Desktop/work/vm-agent-server/agent/test.exe" MonitoringFiles="C:/Users/MA/Desktop/work/api-seq-tools/winapioverride32_bin_6.3.0/monitoring files/ntdll 7 x86.txt" NoGUI OnlyBaseModule StopAndKillAfter=120000 SavingFileName="C:/Users/MA/Desktop/test.xml"
+
+C:\Users\MA\Desktop\work\api-seq-tools\winapioverride32_bin_6.3.0\WinAPIOverride32.exe AppPath="C:\Users\MA\Desktop\work\vm-agent-server\agent\test.exe" MonitoringFiles="C:\Users\MA\Desktop\work\vm-agent-server\agent\wao\advapi32.txt";"C:\Users\MA\Desktop\work\vm-agent-server\agent\wao\kernel32 7 x86.txt";"C:\Users\MA\Desktop\work\vm-agent-server\agent\wao\ntdll 7 x86.txt";"C:\Users\MA\Desktop\work\vm-agent-server\agent\wao\user32 7 x86.txt";"C:\Users\MA\Desktop\work\vm-agent-server\agent\wao\wininet.txt";"C:\Users\MA\Desktop\work\vm-agent-server\agent\wao\ws2_32.txt" NoGUI OnlyBaseModule StopAndKillAfter=120000 SavingFileName="C:\Users\MA\Desktop\test.xml"
+
+C:\Users\MA\Desktop\work\api-seq-tools\winapioverride32_bin_6.3.0\WinAPIOverride32.exe AppPath="C:\Users\MA\Desktop\work\vm-agent-server\agent\calc.exe" MonitoringFiles="C:\Users\MA\Desktop\wao-api\all.txt" NoGUI OnlyBaseModule StopAndKillAfter=10000 SavingFileName="C:\Users\MA\Desktop\test.xml"
+
+C:\Users\MA\Desktop\wao-api

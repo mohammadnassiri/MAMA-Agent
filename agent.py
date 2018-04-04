@@ -2,6 +2,8 @@ import os
 import subprocess
 import shlex
 import threading
+
+import datetime
 import pyautogui
 import requests
 import time
@@ -96,11 +98,11 @@ class Executor:
 
 
 class Trace:
-    def __init__(self, pin_path, wao_path, file_path, current_dir, arch, timeout=None):
+    def __init__(self, pin_path, wao_path, file_path, wao_current_dir, arch, timeout=None):
         self.pin_path = pin_path
         self.wao_path = wao_path
         self.file_path = file_path
-        self.current_dir = current_dir
+        self.wao_current_dir = wao_current_dir
         self.arch = arch
         self.timeout = timeout
 
@@ -111,8 +113,9 @@ class Trace:
         z = ""
         sequence = None
         try:
+            monitor_file = self.wao_current_dir + "wao\\all.txt"
             x, y, z = Executor(
-                self.wao_path + 'WinAPIOverride32.exe AppPath="' + self.file_path + '" MonitoringFiles="' + self.current_dir + 'wao.txt" NoGUI OnlyBaseModule StopAndKillAfter=120000 SavingFileName="wao-log.xml"',
+                self.wao_path + 'WinAPIOverride32.exe AppPath="' + self.file_path + '" MonitoringFiles="' + monitor_file + '" NoGUI OnlyBaseModule StopAndKillAfter=120000 SavingFileName="wao-log.xml"',
                 self.timeout).run()
             while not os.path.exists("wao-log.xml"):
                 time.sleep(1)
@@ -120,6 +123,7 @@ class Trace:
             y = y.decode('ascii')
             z = z.decode('ascii')
         except Exception as e:
+            print(e)
             pass
         return sequence, x, y, z
 
@@ -145,6 +149,7 @@ class Trace:
                     z = z.decode('ascii')
                     sequence = y + z
             except Exception as e:
+                print(e)
                 status = 0
         return status, file, sequence, x, y, z
 
@@ -168,6 +173,7 @@ if __name__ == '__main__':
     screen_shot_thread_time = 20
     server = Server('http://localhost:8000/api/', vbox)
     current_dir = "C:/Users/MA/Desktop/work/vm-agent-server/agent/"
+    wao_current_dir = "C:\\Users\\MA\\Desktop\\work\\vm-agent-server\\agent\\"  # wao needs win mode path
     this_pin_path = "C:/Users/MA/Desktop/work/api-seq-tools/pin-2.14-71313-msvc9-windows/"
     this_wao_path = "C:/Users/MA/Desktop/work/api-seq-tools/winapioverride32_bin_6.3.0/"
     wao_pin = 0   # 0 for wao and 1 for pin
@@ -180,11 +186,13 @@ if __name__ == '__main__':
         try:
             response = server.request().json()
             if not response == 0:
+                print("(*) Process started at: " + datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S"))
                 print("(*) Got a file for trace ...")
                 break
             print("(!) No file provided. Will try after 1 second.")
             time.sleep(1)
         except Exception as e:
+            print(e)
             continue
 
     file_id = response['id']
@@ -205,6 +213,8 @@ if __name__ == '__main__':
         # set path of two tools and the file that will be traced
         wao_path = this_wao_path
         pin_path = this_pin_path
+        if wao_pin == 0:
+            current_dir = wao_current_dir
         file_path = current_dir + file_name
 
         # we will first check the runpe for all samples then in second phase we will trace with wao
@@ -217,6 +227,7 @@ if __name__ == '__main__':
         if wao_pin == 0:
             print("(*) Start WAO thread ...")
             sequence, x, y, z = trace.wao()
+            print(x, y, z)
             print("(*) WAO Done.")
 
         # trace file with pintool for runpe
@@ -224,9 +235,10 @@ if __name__ == '__main__':
         run_pe_file = None
         run_pe_sequence = ""
         if wao_pin == 1:
-            print("(*) Start Pin tool thread ...")
+            print("(*) Start PinTool thread ...")
             run_pe, run_pe_file, run_pe_sequence, x, y, z = trace.pintool()
             print(x, y, z)
+            print("(*) PinTool Done.")
 
         # final result
         result = "Process Done."
@@ -240,3 +252,4 @@ if __name__ == '__main__':
         result = server.result(file_id, result, sequence, run_pe_file, run_pe_sequence, screen_shot, run_pe)
 
         print("(*) Done.")
+        print("(*) Process end at: " + datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S"))

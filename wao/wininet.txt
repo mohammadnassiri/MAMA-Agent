@@ -1,0 +1,24 @@
+wininet.dll|BOOLAPI DeleteUrlCacheEntryA( __in LPCSTR  lpszUrlName)
+wininet.dll|BOOLAPI DeleteUrlCacheEntryW( __in LPCSTR  lpszUrlName)
+wininet.dll|HINTERNET HttpOpenRequestA( __in HINTERNET hConnect, __in LPCSTR  lpszVerb, __in LPCSTR  lpszObjectName, __in LPCSTR  lpszVersion, __in LPCSTR  lpszReferer, __in LPCSTR  *lplpszAcceptTypes, __in DWORD dwFlags, __in DWORD_PTR dwContext)|Out
+wininet.dll|HINTERNET HttpOpenRequestW( __in HINTERNET hConnect, __in LPCWSTR lpszVerb, __in LPCWSTR lpszObjectName, __in LPCWSTR lpszVersion, __in LPCWSTR lpszReferer, __in LPCWSTR *lplpszAcceptTypes, __in DWORD dwFlags, __in DWORD_PTR dwContext)|Out
+wininet.dll|BOOL HttpQueryInfoA( __in HINTERNET hRequest, __in DWORD dwInfoLevel, __inout LPVOID lpvBuffer:PointedDataSize=Arg4, __inout LPDWORD lpdwBufferLength, __inout LPDWORD lpdwIndex)|Out
+wininet.dll|BOOL HttpSendRequestA( __in HINTERNET hRequest, __in LPCSTR  lpszHeaders, __in DWORD dwHeadersLength, __in LPVOID lpOptional:PointedDataSize=Arg5, __in DWORD dwOptionalLength)|Out
+wininet.dll|BOOL HttpSendRequestW( __in HINTERNET hRequest, __in LPCWSTR lpszHeaders, __in DWORD dwHeadersLength, __in LPVOID lpOptional:PointedDataSize=Arg5, __in DWORD dwOptionalLength)|Out
+wininet.dll|BOOL InternetCloseHandle( __in HINTERNET hInternet)
+wininet.dll|HINTERNET InternetConnectA( __in HINTERNET hInternet, __in LPCSTR  lpszServerName, __in INTERNET_PORT nServerPort, __in LPCSTR  lpszUsername, __in LPCSTR  lpszPassword, __in DWORD dwService, __in DWORD dwFlags, __in DWORD_PTR dwContext)
+wininet.dll|HINTERNET InternetConnectW( __in HINTERNET hInternet, __in LPCWSTR lpszServerName, __in INTERNET_PORT nServerPort, __in LPCWSTR lpszUsername, __in LPCWSTR lpszPassword, __in DWORD dwService, __in DWORD dwFlags, __in DWORD_PTR dwContext)
+wininet.dll|BOOL InternetCrackUrlA( __in LPCSTR  lpszUrl, __in DWORD dwUrlLength, __in DWORD dwFlags, __inout LPURL_COMPONENTS lpUrlComponents)|Out
+wininet.dll|BOOL InternetCrackUrlW( __in LPCWSTR lpszUrl, __in DWORD dwUrlLength, __in DWORD dwFlags, __inout LPURL_COMPONENTS lpUrlComponents)|Out
+wininet.dll|BOOL InternetGetConnectedState( __out LPDWORD lpdwFlags, __in DWORD dwReserved)|Out
+wininet.dll|BOOL InternetGetConnectedStateExA( __out LPDWORD lpdwFlags, __out LPSTR  lpszConnectionName, __in DWORD dwNameLen, __in DWORD dwReserved)|Out
+wininet.dll|BOOL InternetGetConnectedStateExW( __out LPDWORD lpdwFlags, __out LPSTR  lpszConnectionName, __in DWORD dwNameLen, __in DWORD dwReserved)|Out
+wininet.dll|HINTERNET InternetOpenA( __in LPCSTR  lpszAgent, __in DWORD dwAccessType, __in LPCSTR  lpszProxyName, __in LPCSTR  lpszProxyBypass, __in DWORD dwFlags)
+wininet.dll|HINTERNET InternetOpenUrlA( __in HINTERNET hInternet, __in LPCSTR  lpszUrl, __in LPCSTR  lpszHeaders, __in DWORD dwHeadersLength, __in DWORD dwFlags, __in DWORD_PTR dwContext)
+wininet.dll|HINTERNET InternetOpenUrlW( __in HINTERNET hInternet, __in LPCWSTR lpszUrl, __in LPCWSTR lpszHeaders, __in DWORD dwHeadersLength, __in DWORD dwFlags, __in DWORD_PTR dwContext)
+wininet.dll|HINTERNET InternetOpenW( __in LPCWSTR lpszAgent, __in DWORD dwAccessType, __in LPCWSTR lpszProxyName, __in LPCWSTR lpszProxyBypass, __in DWORD dwFlags)
+wininet.dll|BOOL InternetQueryOptionA( __in HINTERNET hInternet, __in DWORD dwOption, __out LPVOID lpBuffer:PointedDataSize=Arg4, __inout LPDWORD lpdwBufferLength)|Out
+wininet.dll|BOOL InternetReadFile( __in HINTERNET hFile, __out LPVOID lpBuffer, __in DWORD dwNumberOfBytesToRead, __out LPDWORD lpdwNumberOfBytesRead)|Out
+wininet.dll|BOOL InternetSetOptionA( __in HINTERNET hInternet, __in DWORD dwOption, __in LPVOID lpBuffer:PointedDataSize=Arg4, __in DWORD dwBufferLength)|Out
+wininet.dll|INTERNET_STATUS_CALLBACK InternetSetStatusCallback( __in HINTERNET hInternet, __in INTERNET_STATUS_CALLBACK lpfnInternetCallback)
+wininet.dll|BOOL InternetWriteFile( __in HINTERNET hFile, __in LPCVOID lpBuffer, __in DWORD dwNumberOfBytesToWrite, __out LPDWORD lpdwNumberOfBytesWritten)|Out

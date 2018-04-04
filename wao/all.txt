@@ -1,0 +1,293 @@
+advapi32.dll|BOOL CryptAcquireContextA( HCRYPTPROV* phProv, LPCSTR  pszContainer, LPCSTR  pszProvider, DWORD dwProvType, DWORD dwFlags)|Out|FailureIfNullRet
+advapi32.dll|BOOL CryptAcquireContextW( HCRYPTPROV* phProv, LPCWSTR pszContainer, LPCWSTR pszProvider, DWORD dwProvType, DWORD dwFlags)|Out|FailureIfNullRet
+advapi32.dll|BOOL CryptCreateHash( HCRYPTPROV hProv, ALG_ID Algid, HCRYPTKEY hKey, DWORD dwFlags, HCRYPTHASH* phHash)|Out|FailureIfNullRet
+advapi32.dll|BOOL CryptDecrypt( HCRYPTKEY hKey, HCRYPTHASH hHash, BOOL Final, DWORD dwFlags, BYTE* pbData, DWORD* pdwDataLen)|Out|FailureIfNullRet
+advapi32.dll|BOOL CryptEncrypt( HCRYPTKEY hKey, HCRYPTHASH hHash, BOOL Final, DWORD dwFlags, BYTE* pbData, DWORD* pdwDataLen, DWORD dwBufLen)|Out|FailureIfNullRet
+advapi32.dll|BOOL CryptExportKey( HCRYPTKEY hKey, HCRYPTKEY hExpKey, DWORD dwBlobType, DWORD dwFlags, BYTE* pbData, DWORD* pdwDataLen)|Out|FailureIfNullRet
+advapi32.dll|BOOL CryptGenKey( HCRYPTPROV hProv, ALG_ID Algid, DWORD dwFlags, HCRYPTKEY* phKey)|Out|FailureIfNullRet
+advapi32.dll|BOOL CryptHashData( HCRYPTHASH hHash, BYTE* pbData, DWORD dwDataLen, DWORD dwFlags)|Out|FailureIfNullRet
+advapi32.dll|BOOL GetUserNameA( LPSTR  lpBuffer, LPDWORD lpnSize)|Out|FailureIfNullRet
+advapi32.dll|BOOL GetUserNameW( LPWSTR lpBuffer, LPDWORD lpnSize)|Out|FailureIfNullRet
+advapi32.dll|BOOL LookupAccountSidW( LPCWSTR lpSystemName, PSID lpSid, LPWSTR lpName, LPDWORD cchName, LPWSTR lpReferencedDomainName, LPDWORD cchReferencedDomainName, PSID_NAME_USE peUse)|Out|FailureIfNullRet
+advapi32.dll|LONG RegCloseKey( HKEY hKey)|FailureIfNotNullRet
+advapi32.dll|LONG RegCreateKeyExA( HKEY hKey, LPCSTR  lpSubKey, DWORD Reserved, LPSTR  lpClass, DWORD dwOptions, REGSAM samDesired, LPSECURITY_ATTRIBUTES lpSecurityAttributes, PHKEY phkResult, LPDWORD lpdwDisposition)|Out|FailureIfNotNullRet
+advapi32.dll|LONG RegCreateKeyExW( HKEY hKey, LPCWSTR lpSubKey, DWORD Reserved, LPWSTR lpClass, DWORD dwOptions, REGSAM samDesired, LPSECURITY_ATTRIBUTES lpSecurityAttributes, PHKEY phkResult, LPDWORD lpdwDisposition)|Out|FailureIfNotNullRet
+advapi32.dll|LONG RegDeleteKeyA( HKEY hKey, LPCSTR  lpSubKey)|FailureIfNotNullRet
+advapi32.dll|LONG RegDeleteKeyW( HKEY hKey, LPCWSTR lpSubKey)|FailureIfNotNullRet
+advapi32.dll|LONG RegDeleteValueA( HKEY hKey, LPCSTR  lpValueName)|FailureIfNotNullRet
+advapi32.dll|LONG RegDeleteValueW( HKEY hKey, LPCWSTR lpValueName)|FailureIfNotNullRet
+advapi32.dll|LONG RegEnumKeyExA( HKEY hKey, DWORD dwIndex, LPSTR  lpName, LPDWORD lpcName, LPDWORD lpReserved, LPSTR  lpClass, LPDWORD lpcClass, PFILETIME lpftLastWriteTime)|Out|FailureIfNotNullRet
+advapi32.dll|LONG RegEnumKeyExW( HKEY hKey, DWORD dwIndex, LPWSTR lpName, LPDWORD lpcName, LPDWORD lpReserved, LPWSTR lpClass, LPDWORD lpcClass, PFILETIME lpftLastWriteTime)|Out|FailureIfNotNullRet
+advapi32.dll|LONG RegEnumKeyW( HKEY hKey, DWORD dwIndex, LPWSTR lpName, DWORD cchName)|Out|FailureIfNotNullRet
+advapi32.dll|LONG RegEnumValueA( HKEY hKey, DWORD dwIndex, LPSTR  lpValueName, LPDWORD lpcValueName, LPDWORD lpReserved, LPDWORD lpType, LPBYTE lpData, LPDWORD lpcbData)|Out|FailureIfNotNullRet
+advapi32.dll|LONG RegEnumValueW( HKEY hKey, DWORD dwIndex, LPWSTR lpValueName, LPDWORD lpcValueName, LPDWORD lpReserved, LPDWORD lpType, LPBYTE lpData, LPDWORD lpcbData)|Out|FailureIfNotNullRet
+advapi32.dll|LONG RegOpenKeyExA( HKEY hKey, LPCSTR  lpSubKey, DWORD ulOptions, REGSAM samDesired, PHKEY phkResult)|Out|FailureIfNotNullRet
+advapi32.dll|LONG RegOpenKeyExW( HKEY hKey, LPCWSTR lpSubKey, DWORD ulOptions, REGSAM samDesired, PHKEY phkResult)|Out|FailureIfNotNullRet
+advapi32.dll|LONG RegQueryInfoKeyA( HKEY hKey, LPSTR  lpClass, LPDWORD lpcClass, LPDWORD lpReserved, LPDWORD lpcSubKeys, LPDWORD lpcMaxSubKeyLen, LPDWORD lpcMaxClassLen, LPDWORD lpcValues, LPDWORD lpcMaxValueNameLen, LPDWORD lpcMaxValueLen, LPDWORD lpcbSecurityDescriptor, PFILETIME lpftLastWriteTime)|Out|FailureIfNotNullRet
+advapi32.dll|LONG RegQueryInfoKeyW( HKEY hKey, LPWSTR lpClass, LPDWORD lpcClass, LPDWORD lpReserved, LPDWORD lpcSubKeys, LPDWORD lpcMaxSubKeyLen, LPDWORD lpcMaxClassLen, LPDWORD lpcValues, LPDWORD lpcMaxValueNameLen, LPDWORD lpcMaxValueLen, LPDWORD lpcbSecurityDescriptor, PFILETIME lpftLastWriteTime)|Out|FailureIfNotNullRet
+advapi32.dll|LONG RegQueryValueExA( HKEY hKey, LPCSTR  lpValueName, LPDWORD lpReserved, LPDWORD lpType, LPBYTE lpData, LPDWORD lpcbData)|Out|FailureIfNotNullRet
+advapi32.dll|LONG RegQueryValueExW( HKEY hKey, LPCWSTR lpValueName, LPDWORD lpReserved, LPDWORD lpType, LPBYTE lpData, LPDWORD lpcbData)|Out|FailureIfNotNullRet
+advapi32.dll|LONG RegSetValueExA( HKEY hKey, LPCSTR  lpValueName, DWORD Reserved, DWORD dwType, const BYTE* lpData, DWORD cbData)|Out|FailureIfNotNullRet
+advapi32.dll|LONG RegSetValueExW( HKEY hKey, LPCWSTR lpValueName, DWORD Reserved, DWORD dwType, const BYTE* lpData, DWORD cbData)|Out|FailureIfNotNullRet
+advapi32.dll|BOOL ControlService( SC_HANDLE hService, DWORD dwControl, LPSERVICE_STATUS lpServiceStatus)|Out|FailureIfNullRet
+advapi32.dll|SC_HANDLE CreateServiceA( SC_HANDLE hSCManager, LPCSTR  lpServiceName, LPCSTR  lpDisplayName, DWORD dwDesiredAccess, DWORD dwServiceType, DWORD dwStartType, DWORD dwErrorControl, LPCSTR  lpBinaryPathName, LPCSTR  lpLoadOrderGroup, LPDWORD lpdwTagId, LPCSTR  lpDependencies, LPCSTR  lpServiceStartName, LPCSTR  lpPassword)|Out
+advapi32.dll|SC_HANDLE CreateServiceW( SC_HANDLE hSCManager, LPCWSTR lpServiceName, LPCWSTR lpDisplayName, DWORD dwDesiredAccess, DWORD dwServiceType, DWORD dwStartType, DWORD dwErrorControl, LPCWSTR lpBinaryPathName, LPCWSTR lpLoadOrderGroup, LPDWORD lpdwTagId, LPCWSTR lpDependencies, LPCWSTR lpServiceStartName, LPCWSTR lpPassword)|Out
+advapi32.dll|BOOL DeleteService( SC_HANDLE hService)|FailureIfNullRet
+advapi32.dll|BOOL EnumServicesStatusA( SC_HANDLE hSCManager, DWORD dwServiceType, DWORD dwServiceState, LPENUM_SERVICE_STATUS lpServices, DWORD cbBufSize, LPDWORD pcbBytesNeeded, LPDWORD lpServicesReturned, LPDWORD lpResumeHandle)|Out|FailureIfNullRet
+advapi32.dll|BOOL EnumServicesStatusW( SC_HANDLE hSCManager, DWORD dwServiceType, DWORD dwServiceState, LPENUM_SERVICE_STATUS lpServices, DWORD cbBufSize, LPDWORD pcbBytesNeeded, LPDWORD lpServicesReturned, LPDWORD lpResumeHandle)|Out|FailureIfNullRet
+advapi32.dll|SC_HANDLE OpenSCManagerA( LPCSTR  lpMachineName, LPCSTR  lpDatabaseName, DWORD dwDesiredAccess)|FailureIfNullRet
+advapi32.dll|SC_HANDLE OpenSCManagerW( LPCWSTR lpMachineName, LPCWSTR lpDatabaseName, DWORD dwDesiredAccess)|FailureIfNullRet
+advapi32.dll|SC_HANDLE OpenServiceA( SC_HANDLE hSCManager, LPCSTR  lpServiceName, DWORD dwDesiredAccess)|FailureIfNullRet
+advapi32.dll|SC_HANDLE OpenServiceW( SC_HANDLE hSCManager, LPCWSTR lpServiceName, DWORD dwDesiredAccess)|FailureIfNullRet
+advapi32.dll|BOOL StartServiceA( SC_HANDLE hService, DWORD dwNumServiceArgs, LPCTSTR* lpServiceArgVectors)|Out|FailureIfNullRet
+advapi32.dll|BOOL StartServiceW( SC_HANDLE hService, DWORD dwNumServiceArgs, LPCTSTR* lpServiceArgVectors)|Out|FailureIfNullRet
+advapi32.dll|BOOL LookupPrivilegeValueW( LPCWSTR lpSystemName, LPCWSTR lpName, PLUID lpLuid)|Out|FailureIfNullRet
+
+crypt32.dll|BOOL CertControlStore( HCERTSTORE hCertStore, DWORD dwFlags, DWORD dwCtrlType, const void* pvCtrlPara)|Out|FailureIfNullRet
+crypt32.dll|PCCERT_CONTEXT CertCreateCertificateContext( DWORD dwCertEncodingType, const BYTE* pbCertEncoded, DWORD cbCertEncoded)|Out
+crypt32.dll|HCERTSTORE CertOpenStore( LPCSTR lpszStoreProvider, DWORD dwMsgAndCertEncodingType, HCRYPTPROV_LEGACY hCryptProv, DWORD dwFlags, const void* pvPara)|Out
+crypt32.dll|HCERTSTORE CertOpenSystemStoreA( HCRYPTPROV_LEGACY hprov, LPTCSTR szSubsystemProtocol)|Out
+crypt32.dll|HCERTSTORE CertOpenSystemStoreW( HCRYPTPROV_LEGACY hprov, LPTCSTR szSubsystemProtocol)|Out
+crypt32.dll|BOOL CryptDecodeMessage( DWORD dwMsgTypeFlags, PCRYPT_DECRYPT_MESSAGE_PARA pDecryptPara, PCRYPT_VERIFY_MESSAGE_PARA pVerifyPara, DWORD dwSignerIndex, const BYTE* pbEncodedBlob, DWORD cbEncodedBlob, DWORD dwPrevInnerContentType, DWORD* pdwMsgType, DWORD* pdwInnerContentType, BYTE* pbDecoded, DWORD* pcbDecoded, PCCERT_CONTEXT* ppXchgCert, PCCERT_CONTEXT* ppSignerCert)|Out|FailureIfNullRet
+crypt32.dll|BOOL CryptDecodeObjectEx( DWORD dwCertEncodingType, LPCSTR lpszStructType, const BYTE* pbEncoded, DWORD cbEncoded, DWORD dwFlags, PCRYPT_DECODE_PARA pDecodePara, void* pvStructInfo, DWORD* pcbStructInfo)|Out|FailureIfNullRet 
+crypt32.dll|BOOL CryptDecryptMessage( PCRYPT_DECRYPT_MESSAGE_PARA pDecryptPara, const BYTE* pbEncryptedBlob, DWORD cbEncryptedBlob, BYTE* pbDecrypted, DWORD* pcbDecrypted, PCCERT_CONTEXT* ppXchgCert)|Out|FailureIfNullRet 
+crypt32.dll|BOOL CryptEncryptMessage( PCRYPT_ENCRYPT_MESSAGE_PARA pEncryptPara, DWORD cRecipientCert, PCCERT_CONTEXT* rgpRecipientCert, const BYTE* pbToBeEncrypted, DWORD cbToBeEncrypted, BYTE* pbEncryptedBlob, DWORD* pcbEncryptedBlob);|Out|FailureIfNullRet 
+crypt32.dll|BOOL CryptHashMessage( PCRYPT_HASH_MESSAGE_PARA pHashPara, BOOL fDetachedHash, DWORD cToBeHashed, const BYTE** rgpbToBeHashed, DWORD* rgcbToBeHashed, BYTE* pbHashedBlob, DWORD* pcbHashedBlob, BYTE* pbComputedHash, DWORD* pcbComputedHash)|Out|FailureIfNullRet
+crypt32.dll|BOOL CryptProtectData( DATA_BLOB* pDataIn, LPCWSTR szDataDescr, DATA_BLOB* pOptionalEntropy, PVOID pvReserved, CRYPTPROTECT_PROMPTSTRUCT* pPromptStruct, DWORD dwFlags, DATA_BLOB* pDataOut)|Out|FailureIfNullRet 
+crypt32.dll|BOOL CryptUnprotectData( DATA_BLOB* pDataIn, LPWSTR* ppszDataDescr, DATA_BLOB* pOptionalEntropy, PVOID pvReserved, CRYPTPROTECT_PROMPTSTRUCT* pPromptStruct, DWORD dwFlags, DATA_BLOB* pDataOut)|Out|FailureIfNullRet 
+ 
+kernel32.dll|LPTOP_LEVEL_EXCEPTION_FILTER SetUnhandledExceptionFilter(LPTOP_LEVEL_EXCEPTION_FILTER lpTopLevelExceptionFilter)|Out
+kernel32.dll|BOOL CopyFileA(LPCSTR lpExistingFileName,LPCSTR lpNewFileName,BOOL bFailIfExists)|FailureIfNullRet
+kernel32.dll|BOOL CopyFileExW(LPCWSTR lpExistingFileName,LPCWSTR lpNewFileName,LPPROGRESS_ROUTINE lpProgressRoutine,LPVOID lpData,LPBOOL pbCancel,DWORD dwCopyFlags)|Out|FailureIfNullRet
+kernel32.dll|BOOL CopyFileW(LPCWSTR lpExistingFileName,LPCWSTR lpNewFileName,BOOL bFailIfExists)|FailureIfNullRet
+kernel32.dll|BOOL CreateDirectoryExW(LPCWSTR lpTemplateDirectory,LPCWSTR lpNewDirectory,LPSECURITY_ATTRIBUTES lpSecurityAttributes)|FailureIfNullRet
+kernel32.dll|BOOL CreateDirectoryW(LPCWSTR lpPathName,LPSECURITY_ATTRIBUTES lpSecurityAttributes)|FailureIfNullRet
+kernel32.dll|BOOL DeleteFileW(LPCWSTR lpFileName)|FailureIfNullRet
+kernel32.dll|BOOL DeviceIoControl(HANDLE hDevice,DWORD dwIoControlCode,LPVOID lpInBuffer:PointedDataSize=Arg4,DWORD nInBufferSize,LPVOID lpOutBuffer:PointedDataSize=Arg7,DWORD nOutBufferSize,LPDWORD lpBytesReturned,LPOVERLAPPED lpOverlapped)|Out|FailureIfNullRet|FailureIfLastErrorValue!=997
+kernel32.dll|HANDLE FindFirstFileExA(LPCSTR lpFileName,FINDEX_INFO_LEVELS fInfoLevelId,LPWIN32_FIND_DATA lpFindFileData,FINDEX_SEARCH_OPS fSearchOp,LPVOID lpSearchFilter,DWORD dwAdditionalFlags)|Out|FailureIfNullRet
+kernel32.dll|HANDLE FindFirstFileExW(LPCWSTR lpFileName,FINDEX_INFO_LEVELS fInfoLevelId,LPWIN32_FIND_DATAW lpFindFileData,FINDEX_SEARCH_OPS fSearchOp,LPVOID lpSearchFilter,DWORD dwAdditionalFlags)|Out|FailureIfNullRet
+kernel32.dll|BOOL GetFileAttributesExW(LPCWSTR lpFileName,GET_FILEEX_INFO_LEVELS fInfoLevelId,LPVOID lpFileInformation)|Out|FailureIfNullRet
+kernel32.dll|DWORD GetFileAttributesW(LPCWSTR lpFileName)
+kernel32.dll|BOOL GetFileInformationByHandle(HANDLE hFile,LPBY_HANDLE_FILE_INFORMATION lpFileInformation)|Out|FailureIfNullRet
+kernel32.dll|BOOL GetFileInformationByHandleEx(HANDLE hFile,FILE_INFO_BY_HANDLE_CLASS FileInformationClass,LPVOID lpFileInformation,DWORD dwBufferSize)|Out|FailureIfNullRet
+kernel32.dll|DWORD GetFileSize(HANDLE hFile,LPDWORD lpFileSizeHigh)|Out
+kernel32.dll|BOOL GetFileSizeEx(HANDLE hFile,PLARGE_INTEGER lpFileSize)|Out|FailureIfNullRet
+kernel32.dll|DWORD GetFileType(HANDLE hFile)
+kernel32.dll|DWORD GetShortPathNameW(LPCWSTR lpszLongPath,LPWSTR lpszShortPath,DWORD cchBuffer)|Out
+kernel32.dll|UINT GetSystemDirectoryA(LPSTR lpBuffer,UINT uSize)|Out
+kernel32.dll|UINT GetSystemDirectoryW(LPWSTR lpBuffer,UINT uSize)|Out
+kernel32.dll|UINT GetSystemWindowsDirectoryA(LPSTR lpBuffer,UINT uSize)|Out
+kernel32.dll|UINT GetSystemWindowsDirectoryW(LPWSTR lpBuffer,UINT uSize)|Out
+kernel32.dll|DWORD GetTempPathW(DWORD nBufferLength,LPWSTR lpBuffer)|Out
+kernel32.dll|BOOL GetVolumeNameForVolumeMountPointW(LPCWSTR lpszVolumeMountPoint,LPWSTR lpszVolumeName,DWORD cchBufferLength)|Out|FailureIfNullRet
+kernel32.dll|BOOL GetVolumePathNameW(LPCWSTR lpszFileName,LPWSTR lpszVolumePathName,DWORD cchBufferLength)|Out|FailureIfNullRet
+kernel32.dll|BOOL GetVolumePathNamesForVolumeNameW(LPCWSTR lpszVolumeName,LPWSTR lpszVolumePathNames,DWORD cchBufferLength,PDWORD lpcchReturnLength)|Out|FailureIfNullRet
+kernel32.dll|BOOL MoveFileWithProgressW(LPCWSTR lpExistingFileName,LPCWSTR lpNewFileName,LPPROGRESS_ROUTINE lpProgressRoutine,LPVOID lpData,DWORD dwFlags)|Out|FailureIfNullRet
+kernel32.dll|BOOL RemoveDirectoryA(LPCSTR lpPathName)|FailureIfNullRet
+kernel32.dll|BOOL RemoveDirectoryW(LPCWSTR lpPathName)|FailureIfNullRet
+kernel32.dll|DWORD SearchPathW(LPCWSTR lpPath,LPCWSTR lpFileName,LPCWSTR lpExtension,DWORD nBufferLength,LPWSTR lpBuffer,LPWSTR* lpFilePart)|Out
+kernel32.dll|BOOL SetEndOfFile(HANDLE hFile)|FailureIfNullRet
+kernel32.dll|BOOL SetFileAttributesW(LPCWSTR lpFileName,DWORD dwFileAttributes)|FailureIfNullRet
+kernel32.dll|BOOL SetFileInformationByHandle(HANDLE hFile,FILE_INFO_BY_HANDLE_CLASS FileInformationClass,LPVOID lpFileInformation,DWORD dwBufferSize)|Out
+kernel32.dll|DWORD SetFilePointer(HANDLE hFile,LONG lDistanceToMove,PLONG lpDistanceToMoveHigh,DWORD dwMoveMethod)|Out
+kernel32.dll|BOOL SetFilePointerEx(HANDLE hFile,LARGE_INTEGER liDistanceToMove,PLARGE_INTEGER lpNewFilePointer,DWORD dwMoveMethod)|FailureIfNullRet
+kernel32.dll|BOOL GetComputerNameA(LPSTR lpBuffer,LPDWORD lpnSize)|Out|FailureIfNullRet
+kernel32.dll|BOOL GetComputerNameW(LPWSTR lpBuffer,LPDWORD lpnSize)|Out|FailureIfNullRet
+kernel32.dll|BOOL GetDiskFreeSpaceExW(LPCWSTR lpDirectoryName,PULARGE_INTEGER lpFreeBytesAvailable,PULARGE_INTEGER lpTotalNumberOfBytes,PULARGE_INTEGER lpTotalNumberOfFreeBytes)|Out|FailureIfNullRet
+kernel32.dll|BOOL GetDiskFreeSpaceW(LPCWSTR lpRootPathName,LPDWORD lpSectorsPerCluster,LPDWORD lpBytesPerSector,LPDWORD lpNumberOfFreeClusters,LPDWORD lpTotalNumberOfClusters)|Out|FailureIfNullRet
+kernel32.dll|DWORD GetTimeZoneInformation(LPTIME_ZONE_INFORMATION lpTimeZoneInformation)|Out
+kernel32.dll|BOOL WriteConsoleA(HANDLE hConsoleOutput,const VOID* lpBuffer,DWORD nNumberOfCharsToWrite,LPDWORD lpNumberOfCharsWritten,LPVOID lpReserved)|Out|FailureIfNullRet
+kernel32.dll|BOOL WriteConsoleW(HANDLE hConsoleOutput,const VOID* lpBuffer,DWORD nNumberOfCharsToWrite,LPDWORD lpNumberOfCharsWritten,LPVOID lpReserved)|Out|FailureIfNullRet
+kernel32.dll|CreateProcessInternalW(UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN)
+kernel32.dll|HANDLE CreateRemoteThread(HANDLE hProcess,LPSECURITY_ATTRIBUTES lpThreadAttributes,SIZE_T dwStackSize,LPTHREAD_START_ROUTINE lpStartAddress,LPVOID lpParameter,DWORD dwCreationFlags,LPDWORD lpThreadId)|Out|FailureIfNullRet
+kernel32.dll|HANDLE CreateThread(LPSECURITY_ATTRIBUTES lpThreadAttributes,SIZE_T dwStackSize,LPTHREAD_START_ROUTINE lpStartAddress,LPVOID lpParameter,DWORD dwCreationFlags,LPDWORD lpThreadId)|Out|FailureIfNullRet
+kernel32.dll|HANDLE CreateToolhelp32Snapshot(DWORD dwFlags,DWORD th32ProcessID)|FailureIfNullRet
+kernel32.dll|BOOL Module32FirstW(HANDLE hSnapshot,LPMODULEENTRY32W lpme)|Out|FailureIfNullRet
+kernel32.dll|BOOL Module32NextW(HANDLE hSnapshot,LPMODULEENTRY32W lpme)|Out|FailureIfNullRet
+kernel32.dll|BOOL Process32FirstW(HANDLE hSnapshot,LPPROCESSENTRY32W lppe)|Out|FailureIfNullRet
+kernel32.dll|BOOL Process32NextW(HANDLE hSnapshot,LPPROCESSENTRY32W lppe)|Out|FailureIfNullRet
+kernel32.dll|BOOL ReadProcessMemory(HANDLE hProcess,LPCVOID lpBaseAddress,LPVOID lpBuffer:PointedDataSize=Arg5,DWORD nSize,LPDWORD lpNumberOfBytesRead )|Out|FailureIfNullRet
+kernel32.dll|BOOL Thread32First(HANDLE hSnapshot,LPTHREADENTRY32 lpte)|Out|FailureIfNullRet
+kernel32.dll|BOOL Thread32Next(HANDLE hSnapshot,LPTHREADENTRY32 lpte)|Out|FailureIfNullRet
+kernel32.dll|BOOL WriteProcessMemory(HANDLE hProcess,LPVOID lpBaseAddress,LPVOID lpBuffer:PointedDataSize=Arg4,DWORD nSize,LPDWORD lpNumberOfBytesWritten )|FailureIfNullRet
+kernel32.dll|HRSRC FindResourceA(HMODULE hModule,LPCSTR lpName,LPCSTR lpType)
+kernel32.dll|HRSRC FindResourceExA(HMODULE hModule,LPCSTR lpType,LPCSTR lpName,WORD wLanguage)
+kernel32.dll|HRSRC FindResourceExW(HMODULE hModule,LPCWSTR lpType,LPCWSTR lpName,WORD wLanguage)
+kernel32.dll|HRSRC FindResourceW(HMODULE hModule,LPCWSTR lpName,LPCWSTR lpType)
+kernel32.dll|HGLOBAL LoadResource(HMODULE hModule,HRSRC hResInfo)|FailureIfNullRet
+kernel32.dll|DWORD SizeofResource(HMODULE hModule,HRSRC hResInfo)
+kernel32.dll|void GetLocalTime(LPSYSTEMTIME lpSystemTime)|Out
+kernel32.dll|void GetSystemTime(LPSYSTEMTIME lpSystemTime)|Out
+kernel32.dll|void GetSystemTimeAsFileTime(LPFILETIME lpSystemTimeAsFileTime)|Out
+kernel32.dll|ULONGLONG GetTickCount64()|LargeReturn
+kernel32.dll|void GetNativeSystemInfo(LPSYSTEM_INFO lpSystemInfo)|Out
+kernel32.dll|void GetSystemInfo(LPSYSTEM_INFO lpSystemInfo)|Out
+kernel32.dll|BOOL IsDebuggerPresent()
+kernel32.dll|void OutputDebugStringA(LPCSTR lpOutputString)
+kernel32.dll|UINT SetErrorMode(UINT uMode)
+
+ntdll.dll|PVOID RtlAddVectoredContinueHandler(ULONG First,PVECTORED_EXCEPTION_HANDLER Handler)
+ntdll.dll|RtlAddVectoredExceptionHandler(ULONG FirstHandler,PVECTORED_EXCEPTION_HANDLER VectoredHandler)|Out
+ntdll.dll|RtlRemoveVectoredContinueHandler(UNKNOWN)
+ntdll.dll|RtlRemoveVectoredExceptionHandler(UNKNOWN)
+ntdll.dll|NtCreateDirectoryObject(PHANDLE DirectoryHandle,ACCESS_MASK DesiredAccess,POBJECT_ATTRIBUTES ObjectAttributes)|Out|FailureIfNotNullRet
+ntdll.dll|NTSTATUS NtCreateFile( PHANDLE FileHandle,ACCESS_MASK DesiredAccess,POBJECT_ATTRIBUTES ObjectAttributes,PIO_STATUS_BLOCK IoStatusBlock,PLARGE_INTEGER AllocationSize,ULONG FileAttributes,ULONG ShareAccess,ULONG CreateDisposition,ULONG CreateOptions,PVOID EaBuffer,ULONG EaLength)|Out|FailureIfNotNullRet
+ntdll.dll|NtDeleteFile(POBJECT_ATTRIBUTES ObjectAttributes)|FailureIfNotNullRet
+ntdll.dll|NTSTATUS NtDeviceIoControlFile(HANDLE FileHandle,HANDLE Event,PIO_APC_ROUTINE ApcRoutine,PVOID ApcContext,PIO_STATUS_BLOCK IoStatusBlock,ULONG IoControlCode,PVOID InputBuffer,ULONG InputBufferLength,PVOID OutputBuffer,ULONG OutputBufferLength)|Out|FailureIfNotNullRet
+ntdll.dll|NtOpenDirectoryObject(PHANDLE pHandle,ACCESS_MASK DesiredAccess,POBJECT_ATTRIBUTES ObjectAttributes)|Out|FailureIfNotNullRet
+ntdll.dll|NtOpenFile(PHANDLE FileHandle,ACCESS_MASK DesiredAccess,POBJECT_ATTRIBUTES ObjectAttributes,PIO_STATUS_BLOCK IoStatusBlock,ULONG ShareAccess,ULONG OpenOptions)|Out|FailureIfNotNullRet
+ntdll.dll|NtQueryAttributesFile(POBJECT_ATTRIBUTES ObjectAttributes,PFILE_BASIC_INFORMATION FileAttributes)|Out|FailureIfNotNullRet
+ntdll.dll|NtQueryDirectoryFile(HANDLE FileHandle,HANDLE Event ,PIO_APC_ROUTINE ApcRoutine ,PVOID ApcContext ,PIO_STATUS_BLOCK IoStatusBlock,PVOID FileInformation,ULONG Length,FILE_INFORMATION_CLASS FileInformationClass,BOOLEAN ReturnSingleEntry,PUNICODE_STRING FileMask ,BOOLEAN RestartScan)|Out|FailureIfNotNullRet
+ntdll.dll|NtQueryFullAttributesFile(POBJECT_ATTRIBUTES ObjectAttributes,PVOID Attributes)|Out|FailureIfNotNullRet
+ntdll.dll|NtQueryInformationFile(HANDLE FileHandle,PIO_STATUS_BLOCK IoStatusBlock,PVOID FileInformation,ULONG Length,FILE_INFORMATION_CLASS FileInformationClass)|Out|FailureIfNotNullRet
+ntdll.dll|NtReadFile(HANDLE FileHandle,HANDLE Event,PIO_APC_ROUTINE ApcRoutine,PVOID ApcContext,PIO_STATUS_BLOCK IoStatusBlock,PVOID Buffer:PointedDataSize=Arg7,ULONG Length,PLARGE_INTEGER ByteOffset,PULONG Key)|Out|FailureIfNotNullRet
+ntdll.dll|NtSetInformationFile(HANDLE FileHandle,PIO_STATUS_BLOCK IoStatusBlock,PVOID FileInformation,ULONG Length,FILE_INFORMATION_CLASS FileInformationClass)|Out|FailureIfNotNullRet
+ntdll.dll|NtWriteFile(HANDLE FileHandle,HANDLE Event,PIO_APC_ROUTINE ApcRoutine,PVOID ApcContext,PIO_STATUS_BLOCK IoStatusBlock,PVOID Buffer:PointedDataSize=Arg7,ULONG Length,PLARGE_INTEGER ByteOffset,PULONG Key)|Out|FailureIfNotNullRet
+ntdll.dll|NtAllocateVirtualMemory(HANDLE ProcessHandle,PVOID* BaseAddress,ULONG ZeroBits,PULONG RegionSize,ULONG AllocationType,ULONG Protect)|Out|FailureIfNotNullRet
+ntdll.dll|NtCreateProcess(PHANDLE ProcessHandle,ACCESS_MASK DesiredAccess,POBJECT_ATTRIBUTES ObjectAttributes ,HANDLE ParentProcess,BOOLEAN InheritObjectTable,HANDLE SectionHandle ,HANDLE DebugPort ,HANDLE ExceptionPort)|Out|FailureIfNotNullRet
+ntdll.dll|NtCreateProcessEx(UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN)|FailureIfNotNullRet
+ntdll.dll|NtCreateSection(PHANDLE SectionHandle,ULONG DesiredAccess,POBJECT_ATTRIBUTES ObjectAttributes ,PLARGE_INTEGER MaximumSize ,ULONG PageAttributess,ULONG SectionAttributes,HANDLE FileHandle)|Out|FailureIfNotNullRet
+ntdll.dll|NTSTATUS NtCreateThread(PHANDLE ThreadHandle,ACCESS_MASK DesiredAccess,POBJECT_ATTRIBUTES ObjectAttributes,HANDLE ProcessHandle,PCLIENT_ID ClientId,PCONTEXT ThreadContext,PINITIAL_TEB InitialTeb,BOOLEAN CreateSuspended)|Out|FailureIfNotNullRet
+ntdll.dll|NTSTATUS NtCreateThreadEx(PHANDLE ThreadHandle,ACCESS_MASK DesiredAccess,POBJECT_ATTRIBUTES ObjectAttributes,HANDLE ProcessHandle,LPTHREAD_START_ROUTINE lpStartAddress,LPVOID lpParameter,SIZE_T CreateSuspended,SIZE_T StackZeroBits,SIZE_T SizeOfStackCommit,SIZE_T SizeOfStackReserve,LPVOID lpBytesBuffer)|Out|FailureIfNotNullRet
+ntdll.dll|NtCreateUserProcess(HANDLE ProcessHandle,HANDLE ThreadHandle,UNKNOWN,UNKNOWN,PVOID ProcessSecurityDescriptor,PVOID ThreadSecurityDescriptor,UNKNOWN,UNKNOWN,PRTL_USER_PROCESS_PARAMETERS ProcessParameters,UNKNOWN,UNKNOWN)|Out|FailureIfNotNullRet
+ntdll.dll|NtFreeVirtualMemory(HANDLE ProcessHandle,PVOID* BaseAddress,PULONG RegionSize,ULONG FreeType)|FailureIfNotNullRet
+ntdll.dll|NtGetContextThread(HANDLE ThreadHandle,PCONTEXT pContext)|Out|FailureIfNotNullRet
+ntdll.dll|NtMakePermanentObject(HANDLE ObjectHandle)|FailureIfNotNullRet
+ntdll.dll|NtMakeTemporaryObject(HANDLE ObjectHandle)|FailureIfNotNullRet
+ntdll.dll|NtMapViewOfSection(HANDLE SectionHandle,HANDLE ProcessHandle,PVOID* BaseAddress ,ULONG ZeroBits ,ULONG CommitSize,PLARGE_INTEGER SectionOffset ,PULONG ViewSize,SECTION_INHERIT InheritDisposition,ULONG AllocationType ,ULONG Protect)|FailureIfNotNullRet
+ntdll.dll|NtOpenProcess(PHANDLE pHandle,ACCESS_MASK DesiredAccess,POBJECT_ATTRIBUTES ObjectAttributes,PCLIENT_ID ClientId)|Out|FailureIfNotNullRet
+ntdll.dll|NtOpenSection(PHANDLE pHandle,ACCESS_MASK DesiredAccess,POBJECT_ATTRIBUTES ObjectAttributes)|Out|FailureIfNotNullRet
+ntdll.dll|NTSTATUS NtOpenThread(PHANDLE ThreadHandle,ACCESS_MASK DesiredAccess,POBJECT_ATTRIBUTES ObjectAttributes,PCLIENT_ID ClientId)|Out|FailureIfNotNullRet
+ntdll.dll|NtProtectVirtualMemory(HANDLE ProcessHandle,PVOID* BaseAddress,PULONG NumberOfBytesToProtect,ULONG NewAccessProtection,PULONG OldAccessProtection)|Out|FailureIfNotNullRet
+ntdll.dll|NtQueueApcThread(HANDLE ThreadHandle,PIO_APC_ROUTINE ApcRoutine,PVOID ApcRoutineContext ,PIO_STATUS_BLOCK ApcStatusBlock,ULONG ApcReserved)|FailureIfNotNullRet
+ntdll.dll|NtReadVirtualMemory(HANDLE ProcessHandle,PVOID BaseAddress,PVOID Buffer:PointedDataSize=Arg5,ULONG NumberOfBytesToRead,PULONG NumberOfBytesReaded)|Out|FailureIfNotNullRet
+ntdll.dll|NtResumeThread(HANDLE ThreadHandle,PULONG SuspendCount)|Out|FailureIfNotNullRet
+ntdll.dll|NtSetContextThread(HANDLE ThreadHandle,PCONTEXT Context)|FailureIfNotNullRet
+ntdll.dll|NtSuspendThread(HANDLE ThreadHandle,PULONG PreviousSuspendCount)|Out|FailureIfNotNullRet
+ntdll.dll|NtTerminateProcess(HANDLE ProcessHandle,NTSTATUS ExitStatus)|FailureIfNotNullRet
+ntdll.dll|NtTerminateThread(HANDLE ThreadHandle,NTSTATUS ExitStatus)|FailureIfNotNullRet
+ntdll.dll|NtUnmapViewOfSection(HANDLE ProcessHandle,PVOID BaseAddress)|FailureIfNotNullRet
+ntdll.dll|NtWriteVirtualMemory(HANDLE ProcessHandle,PVOID BaseAddress,PVOID Buffer:PointedDataSize=Arg4,ULONG BytesToWrite,PULONG WrittenBytes)|Out|FailureIfNotNullRet
+ntdll.dll|RtlCreateUserProcess(PUNICODE_STRING ImagePath,ULONG objAttr,PRTL_USER_PROCESS_PARAMETERS,PSECURITY_DESCRIPTOR ProcessSec,PSECURITY_DESCRIPTOR ThreadSec,HANDLE ParentProcess,BOOLEAN InheritHandles,HANDLE DebugPort,HANDLE ExceptionPort,PRTL_USER_PROCESS_INFORMATION ProcessInfo)|Out
+ntdll.dll|RtlCreateUserThread(HANDLE ProcessHandle,PSECURITY_DESCRIPTOR,BOOLEAN CreateSuspended,ULONG StackZeroBits,PULONG StackReserved,PULONG StackCommit,PVOID startAddr,PVOID StartParam,PHANDLE ThreadHandle,PCLIENT_ID)|Out
+ntdll.dll|NtCreateKey(PHANDLE pKeyHandle,ACCESS_MASK DesiredAccess,POBJECT_ATTRIBUTES ObjectAttributes,ULONG TitleIndex,PUNICODE_STRING Class ,ULONG CreateOptions,PULONG Disposition)|Out|FailureIfNotNullRet
+ntdll.dll|NtDeleteKey(HANDLE KeyHandle)|FailureIfNotNullRet
+ntdll.dll|NtDeleteValueKey(HANDLE KeyHandle,PUNICODE_STRING ValueName)|FailureIfNotNullRet
+ntdll.dll|NtEnumerateKey(HANDLE KeyHandle,ULONG Index,KEY_INFORMATION_CLASS KeyInformationClass,PVOID KeyInformation,ULONG Length,PULONG ResultLength)|Out|FailureIfNotNullRet
+ntdll.dll|NtEnumerateValueKey(HANDLE KeyHandle,ULONG Index,KEY_VALUE_INFORMATION_CLASS KeyValueInformation,PVOID KeyValueInformation,ULONG Length,PULONG ResultLength)|Out|FailureIfNotNullRet
+ntdll.dll|NtLoadKey(POBJECT_ATTRIBUTES DestinationKeyName,POBJECT_ATTRIBUTES HiveFileName)|FailureIfNotNullRet
+ntdll.dll|NtLoadKey2(POBJECT_ATTRIBUTES DestinationKeyName,POBJECT_ATTRIBUTES HiveFileName,ULONG Flags)|FailureIfNotNullRet
+ntdll.dll|NtLoadKeyEx( POBJECT_ATTRIBUTES TargetKey,POBJECT_ATTRIBUTES SourceFile,ULONG Flags,HANDLE TrustClassKey)|FailureIfNotNullRet
+ntdll.dll|NtOpenKey(PHANDLE pHandle,ACCESS_MASK DesiredAccess,POBJECT_ATTRIBUTES ObjectAttributes)|Out|FailureIfNotNullRet
+ntdll.dll|NtOpenKeyEx(PHANDLE KeyHandle,ACCESS_MASK DesiredAccess,POBJECT_ATTRIBUTES ObjectAttributes,ULONG OpenOptions)|Out|FailureIfNotNullRet
+ntdll.dll|NtQueryKey(HANDLE KeyHandle,KEY_INFORMATION_CLASS KeyInformationClass,PVOID KeyInformation,ULONG Length,PULONG ResultLength)|Out|FailureIfNotNullRet
+ntdll.dll|NtQueryMultipleValueKey(HANDLE KeyHandle,PKEY_MULTIPLE_VALUE_INFORMATION ValuesList,ULONG NumberOfValues,PVOID DataBuffer,ULONG BufferLength,PULONG RequiredLength)|Out|FailureIfNotNullRet
+ntdll.dll|NtQueryValueKey(HANDLE KeyHandle,PUNICODE_STRING ValueName,KEY_VALUE_INFORMATION_CLASS KeyValueInformationClass,PVOID KeyValueInformation,ULONG Length,PULONG ResultLength)|Out|FailureIfNotNullRet
+ntdll.dll|NtRenameKey(HANDLE KeyHandle,PUNICODE_STRING NewName)|FailureIfNotNullRet
+ntdll.dll|NtReplaceKey(POBJECT_ATTRIBUTES NewHiveFileName,HANDLE KeyHandle,POBJECT_ATTRIBUTES BackupHiveFileName)|FailureIfNotNullRet
+ntdll.dll|NtSaveKey(HANDLE KeyHandle,HANDLE FileHandle)|FailureIfNotNullRet
+ntdll.dll|NtSaveKeyEx(HANDLE KeyHandle,HANDLE FileHandle,ULONG Format)|FailureIfNotNullRet
+ntdll.dll|NtSetValueKey(HANDLE Hkey,PUNICODE_STRING ValueName,ULONG TitleIndex,ULONG Type,PVOID Data,ULONG DataSize)|FailureIfNotNullRet
+ntdll.dll|NtCreateMutant(PHANDLE MutantHandle,ACCESS_MASK DesiredAccess,POBJECT_ATTRIBUTES ObjectAttributes ,BOOLEAN InitialOwner)|Out|FailureIfNotNullRet
+ntdll.dll|NtDelayExecution(BOOLEAN Alertable,PLARGE_INTEGER DelayInterval)|FailureIfNotNullRet
+ntdll.dll|NTSTATUS NtQuerySystemTime(PLARGE_INTEGER SystemTime)|Out|FailureIfNotNullRet
+ntdll.dll|NTSTATUS NTAPI LdrGetDllHandle(PWORD pwPath,PVOID,PUNICODE_STRING ModuleFileName,PHANDLE pHModule)|Out|FailureIfNotNullRet
+ntdll.dll|NTSTATUS NTAPI LdrGetProcedureAddress(HMODULE ModuleHandle,PANSI_STRING FunctionName,WORD Ordinal,PVOID FunAddr)|Out|FailureIfNotNullRet
+ntdll.dll|NTSTATUS NTAPI LdrLoadDll(PWCHAR PathToFile,ULONG Flags,PUNICODE_STRING ModuleFileName,PHANDLE ModuleHandle);|Out|FailureIfNotNullRet
+ntdll.dll|NTSTATUS NTAPI LdrUnloadDll(HANDLE ModuleHandle);|FailureIfNotNullRet
+ntdll.dll|NtClose(HANDLE ObjectHandle)|FailureIfNotNullRet
+ntdll.dll|NtDuplicateObject(HANDLE SourceProcessHandle,PHANDLE SourceHandle,HANDLE TargetProcessHandle,PHANDLE TargetHandle,ACCESS_MASK DesiredAccess ,BOOLEAN InheritHandle,ULONG Options)|Out|FailureIfNotNullRet
+ntdll.dll|NtLoadDriver(PUNICODE_STRING DriverServiceName)|FailureIfNotNullRet
+ntdll.dll|NtUnloadDriver(PUNICODE_STRING DriverServiceName)|FailureIfNotNullRet
+ntdll.dll|RtlCompressBuffer(ULONG,PVOID,ULONG,PVOID,ULONG,ULONG,PULONG,PVOID)
+ntdll.dll|RtlDecompressBuffer(ULONG Format,PVOID DstBuf,ULONG DstBufSize,PVOID SrcBuf,SrcBufSize,PULONG DstSize)|Out
+ntdll.dll|RtlDecompressFragment(UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN)
+
+ole32.dll|HRESULT CoInitializeSecurity( PSECURITY_DESCRIPTOR pVoid, LONG cAuthSvc, SOLE_AUTHENTICATION_SERVICE * asAuthSvc, void * pReserved1, DWORD dwAuthnLevel, DWORD dwImpLevel, SOLE_AUTHENTICATION_LIST * pAuthList, DWORD dwCapabilities, void * pReserved3)|Out|FailureIfNotNullRet
+ole32.dll|CoCreateInstance(  REFCLSID rclsid, LPUNKNOWN pUnkOuter, DWORD dwClsContext, REFIID riid, LPVOID * ppv)|Out|FailureIfNotNullRet
+ole32.dll|HRESULT CoInitializeEx( void * pvReserved, DWORD dwCoInit)|Out|FailureIfNotNullRet
+ole32.dll|WINOLEAPI OleInitialize( LPVOID pvReserved )|Out|FailureIfNotNullRet
+
+secur32.dll|BOOLEAN GetUserNameExA( EXTENDED_NAME_FORMAT NameFormat, LPSTR  lpNameBuffer, PULONG lpnSize)|Out|FailureIfNullRet
+secur32.dll|BOOLEAN GetUserNameExW( EXTENDED_NAME_FORMAT NameFormat, LPWSTR lpNameBuffer, PULONG lpnSize)|Out|FailureIfNullRet
+
+shell32.dll|BOOL ReadCabinetState(CABINETSTATE *lpState, int cbLength)|Out|FailureIfNullRet
+shell32.dll|HRESULT SHGetFolderPathW(HWND hwndOwner, int nFolder, HANDLE hToken, DWORD dwFlags, LPWSTR pszPath)|Out|FailureIfNotNullRet
+shell32.dll|HRESULT SHGetSpecialFolderLocation( HWND hwndOwner, int nFolder, LPITEMIDLIST* ppidl)|Out|FailureIfNotNullRet
+shell32.dll|BOOL ShellExecuteExW( LPSHELLEXECUTEINFO lpExecInfo)|Out|FailureIfNullRet
+
+user32.dll|BOOL EnumWindows(WNDENUMPROC lpEnumFunc,LPARAM lParam)|Out|FailureIfNullRet
+user32.dll|BOOL GetCursorPos(LPPOINT lpPoint)|Out|FailureIfNullRet
+user32.dll|int GetSystemMetrics(int nIndex)
+user32.dll|BOOL ExitWindowsEx(UINT uFlags,DWORD dwReason)|FailureIfNullRet
+user32.dll|SHORT GetAsyncKeyState(int vKey)
+user32.dll|SHORT GetKeyState(int nVirtKey)
+user32.dll|BOOL GetKeyboardState(PBYTE lpKeyState)|Out|FailureIfNullRet
+user32.dll|BOOL SendNotifyMessageA(HWND hWnd,UINT Msg,WPARAM wParam,LPARAM lParam)|Out|FailureIfNullRet
+user32.dll|BOOL SendNotifyMessageW(HWND hWnd,UINT Msg,WPARAM wParam,LPARAM lParam)|Out|FailureIfNullRet
+user32.dll|HHOOK SetWindowsHookExA(int idHook,HOOKPROC lpfn,HINSTANCE hMod,DWORD dwThreadId)
+user32.dll|HHOOK SetWindowsHookExW(int idHook,HOOKPROC lpfn,HINSTANCE hMod,DWORD dwThreadId)
+user32.dll|BOOL UnhookWindowsHookEx(HHOOK hhk)|FailureIfNullRet
+user32.dll|int DrawTextExA(HDC hdc,LPSTR lpchText,int cchText,LPRECT lprc,UINT dwDTFormat,LPDRAWTEXTPARAMS lpDTParams )|Out
+user32.dll|int DrawTextExW(HDC hdc,LPWSTR lpchText,int cchText,LPRECT lprc,UINT dwDTFormat,LPDRAWTEXTPARAMS lpDTParams )|Out
+user32.dll|HWND FindWindowA(LPCSTR lpClassName,LPCSTR lpWindowName)|FailureIfNullRet
+user32.dll|HWND FindWindowExA(HWND hwndParent,HWND hwndChildAfter,LPCSTR lpszClass,LPCSTR lpszWindow)|FailureIfNullRet
+user32.dll|HWND FindWindowExW(HWND hwndParent,HWND hwndChildAfter,LPCWSTR lpszClass,LPCWSTR lpszWindow)|FailureIfNullRet
+user32.dll|HWND FindWindowW(LPCWSTR lpClassName,LPCWSTR lpWindowName)|FailureIfNullRet
+user32.dll|HWND GetForegroundWindow()|FailureIfNullRet
+user32.dll|int LoadStringA(HINSTANCE hInstance,UINT uID,LPSTR lpBuffer,int nBufferMax)|Out
+user32.dll|int LoadStringW(HINSTANCE hInstance,UINT uID,LPWSTR lpBuffer,int nBufferMax)|Out
+user32.dll|int MessageBoxTimeoutA(HWND hWnd,LPCSTR lpText,LPCSTR lpCaption,UINT uType:Define=user32.dll/MessageBox_Type.txt,WORD wLanguageId,DWORD dwTimeOutInMs)|BlockingCall |ReturnDefine=user32.dll/MessageBox_Return.txt |FailureIfNullRet
+user32.dll|int MessageBoxTimeoutW(HWND hWnd,LPCWSTR lpText,LPCWSTR lpCaption,UINT uType:Define=user32.dll/MessageBox_Type.txt,WORD wLanguageId,DWORD dwTimeOutInMs)|BlockingCall |ReturnDefine=user32.dll/MessageBox_Return.txt |FailureIfNullRet
+
+wininet.dll|BOOLAPI DeleteUrlCacheEntryA( __in LPCSTR  lpszUrlName)
+wininet.dll|BOOLAPI DeleteUrlCacheEntryW( __in LPCSTR  lpszUrlName)
+wininet.dll|HINTERNET HttpOpenRequestA( __in HINTERNET hConnect, __in LPCSTR  lpszVerb, __in LPCSTR  lpszObjectName, __in LPCSTR  lpszVersion, __in LPCSTR  lpszReferer, __in LPCSTR  *lplpszAcceptTypes, __in DWORD dwFlags, __in DWORD_PTR dwContext)|Out
+wininet.dll|HINTERNET HttpOpenRequestW( __in HINTERNET hConnect, __in LPCWSTR lpszVerb, __in LPCWSTR lpszObjectName, __in LPCWSTR lpszVersion, __in LPCWSTR lpszReferer, __in LPCWSTR *lplpszAcceptTypes, __in DWORD dwFlags, __in DWORD_PTR dwContext)|Out
+wininet.dll|BOOL HttpQueryInfoA( __in HINTERNET hRequest, __in DWORD dwInfoLevel, __inout LPVOID lpvBuffer:PointedDataSize=Arg4, __inout LPDWORD lpdwBufferLength, __inout LPDWORD lpdwIndex)|Out
+wininet.dll|BOOL HttpSendRequestA( __in HINTERNET hRequest, __in LPCSTR  lpszHeaders, __in DWORD dwHeadersLength, __in LPVOID lpOptional:PointedDataSize=Arg5, __in DWORD dwOptionalLength)|Out
+wininet.dll|BOOL HttpSendRequestW( __in HINTERNET hRequest, __in LPCWSTR lpszHeaders, __in DWORD dwHeadersLength, __in LPVOID lpOptional:PointedDataSize=Arg5, __in DWORD dwOptionalLength)|Out
+wininet.dll|BOOL InternetCloseHandle( __in HINTERNET hInternet)
+wininet.dll|HINTERNET InternetConnectA( __in HINTERNET hInternet, __in LPCSTR  lpszServerName, __in INTERNET_PORT nServerPort, __in LPCSTR  lpszUsername, __in LPCSTR  lpszPassword, __in DWORD dwService, __in DWORD dwFlags, __in DWORD_PTR dwContext)
+wininet.dll|HINTERNET InternetConnectW( __in HINTERNET hInternet, __in LPCWSTR lpszServerName, __in INTERNET_PORT nServerPort, __in LPCWSTR lpszUsername, __in LPCWSTR lpszPassword, __in DWORD dwService, __in DWORD dwFlags, __in DWORD_PTR dwContext)
+wininet.dll|BOOL InternetCrackUrlA( __in LPCSTR  lpszUrl, __in DWORD dwUrlLength, __in DWORD dwFlags, __inout LPURL_COMPONENTS lpUrlComponents)|Out
+wininet.dll|BOOL InternetCrackUrlW( __in LPCWSTR lpszUrl, __in DWORD dwUrlLength, __in DWORD dwFlags, __inout LPURL_COMPONENTS lpUrlComponents)|Out
+wininet.dll|BOOL InternetGetConnectedState( __out LPDWORD lpdwFlags, __in DWORD dwReserved)|Out
+wininet.dll|BOOL InternetGetConnectedStateExA( __out LPDWORD lpdwFlags, __out LPSTR  lpszConnectionName, __in DWORD dwNameLen, __in DWORD dwReserved)|Out
+wininet.dll|BOOL InternetGetConnectedStateExW( __out LPDWORD lpdwFlags, __out LPSTR  lpszConnectionName, __in DWORD dwNameLen, __in DWORD dwReserved)|Out
+wininet.dll|HINTERNET InternetOpenA( __in LPCSTR  lpszAgent, __in DWORD dwAccessType, __in LPCSTR  lpszProxyName, __in LPCSTR  lpszProxyBypass, __in DWORD dwFlags)
+wininet.dll|HINTERNET InternetOpenUrlA( __in HINTERNET hInternet, __in LPCSTR  lpszUrl, __in LPCSTR  lpszHeaders, __in DWORD dwHeadersLength, __in DWORD dwFlags, __in DWORD_PTR dwContext)
+wininet.dll|HINTERNET InternetOpenUrlW( __in HINTERNET hInternet, __in LPCWSTR lpszUrl, __in LPCWSTR lpszHeaders, __in DWORD dwHeadersLength, __in DWORD dwFlags, __in DWORD_PTR dwContext)
+wininet.dll|HINTERNET InternetOpenW( __in LPCWSTR lpszAgent, __in DWORD dwAccessType, __in LPCWSTR lpszProxyName, __in LPCWSTR lpszProxyBypass, __in DWORD dwFlags)
+wininet.dll|BOOL InternetQueryOptionA( __in HINTERNET hInternet, __in DWORD dwOption, __out LPVOID lpBuffer:PointedDataSize=Arg4, __inout LPDWORD lpdwBufferLength)|Out
+wininet.dll|BOOL InternetReadFile( __in HINTERNET hFile, __out LPVOID lpBuffer, __in DWORD dwNumberOfBytesToRead, __out LPDWORD lpdwNumberOfBytesRead)|Out
+wininet.dll|BOOL InternetSetOptionA( __in HINTERNET hInternet, __in DWORD dwOption, __in LPVOID lpBuffer:PointedDataSize=Arg4, __in DWORD dwBufferLength)|Out
+wininet.dll|INTERNET_STATUS_CALLBACK InternetSetStatusCallback( __in HINTERNET hInternet, __in INTERNET_STATUS_CALLBACK lpfnInternetCallback)
+wininet.dll|BOOL InternetWriteFile( __in HINTERNET hFile, __in LPCVOID lpBuffer, __in DWORD dwNumberOfBytesToWrite, __out LPDWORD lpdwNumberOfBytesWritten)|Out
+
+ws2_32.dll|SOCKET WSAAccept( SOCKET Socket, struct sockaddr* addr, LPINT addrlen, LPCONDITIONPROC lpfnCondition, DWORD dwCallbackData)|Out|FailureIfRetValue=-1
+ws2_32.dll|int WSAConnect( SOCKET Socket, const struct sockaddr* name, int namelen, LPWSABUF lpCallerData, LPWSABUF lpCalleeData, LPQOS lpSQOS, LPQOS lpGQOS)|Out|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|int WSARecv( SOCKET Socket, LPWSABUF lpBuffers, DWORD dwBufferCount, LPDWORD lpNumberOfBytesRecvd, LPDWORD lpFlags, LPWSAOVERLAPPED lpOverlapped, LPWSAOVERLAPPED_COMPLETION_ROUTINE lpCompletionRoutine)|Out|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|int WSARecvFrom( SOCKET Socket, LPWSABUF lpBuffers, DWORD dwBufferCount, LPDWORD lpNumberOfBytesRecvd, LPDWORD lpFlags, struct sockaddr* lpFrom, LPINT lpFromlen, LPWSAOVERLAPPED lpOverlapped, LPWSAOVERLAPPED_COMPLETION_ROUTINE lpCompletionRoutine)|Out|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|int WSASend( SOCKET Socket, LPWSABUF lpBuffers, DWORD dwBufferCount, LPDWORD lpNumberOfBytesSent, DWORD dwFlags, LPWSAOVERLAPPED lpOverlapped, LPWSAOVERLAPPED_COMPLETION_ROUTINE lpCompletionRoutine)|Out|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|int WSASendTo( SOCKET Socket, LPWSABUF lpBuffers, DWORD dwBufferCount, LPDWORD lpNumberOfBytesSent, DWORD dwFlags, const struct sockaddr* lpTo, int iToLen, LPWSAOVERLAPPED lpOverlapped, LPWSAOVERLAPPED_COMPLETION_ROUTINE lpCompletionRoutine)|Out|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|SOCKET WSASocketA( int af, int type, int protocol, LPWSAPROTOCOL_INFOA lpProtocolInfo, UINT group, DWORD dwFlags)|Out|FailureIfRetValue=-1
+ws2_32.dll|SOCKET WSASocketW( int af, int type, int protocol, LPWSAPROTOCOL_INFOW lpProtocolInfo, UINT group, DWORD dwFlags)|Out|FailureIfRetValue=-1
+ws2_32.dll|int WSAStartup( WORD wVersionRequested, LPWSADATA lpWSAData)|Out
+ws2_32.dll|SOCKET accept( SOCKET Socket, struct sockaddr* addr, int* addrlen)|Out|FailureIfRetValue=-1
+ws2_32.dll|int bind(SOCKET Socket, const struct sockaddr* name, int namelen)|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|int closesocket( SOCKET Socket)|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|int connect(SOCKET Socket, const struct sockaddr* name, int namelen)|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|int WSAAPI getaddrinfo( const char FAR* nodename, const char FAR* servname, const struct addrinfo FAR* hints, struct addrinfo FAR** res)|Out|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|struct hostent* FAR gethostbyname( const char* name)|Out|FailureIfNullRet
+ws2_32.dll|int getsockname( SOCKET Socket, struct sockaddr* name, int* namelen)|Out|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|int ioctlsocket( SOCKET Socket, long cmd, u_long* argp)|Out|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|int listen( SOCKET Socket, int backlog)|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|int recv( SOCKET Socket, PBYTE buf:PointedDataSize=Arg3, int len, int flags)|Out|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|int recvfrom( SOCKET Socket, PBYTE buf:PointedDataSize=Arg3, int len, int flags, struct sockaddr* from, int* fromlen)|Out|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|int select(int nfds, fd_set* readfds, fd_set* writefds, fd_set* exceptfds, const struct timeval* timeout)|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|int send( SOCKET Socket, PBYTE buf:PointedDataSize=Arg3, int len, int flags)|Out|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|int sendto( SOCKET Socket, PBYTE buf:PointedDataSize=Arg3, int len, int flags, const struct sockaddr* to, int tolen)|Out|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|int setsockopt( SOCKET Socket, int level, int optname, const byte* optval:PointedDataSize=Arg5, int optlen)|Out|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|int shutdown(SOCKET Socket,int how)|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|SOCKET WSAAPI socket( int af, int type, int protocol)|FailureIfRetValue=-1

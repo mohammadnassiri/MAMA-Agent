@@ -1,0 +1,13 @@
+crypt32.dll|BOOL CertControlStore( HCERTSTORE hCertStore, DWORD dwFlags, DWORD dwCtrlType, const void* pvCtrlPara)|Out|FailureIfNullRet
+crypt32.dll|PCCERT_CONTEXT CertCreateCertificateContext( DWORD dwCertEncodingType, const BYTE* pbCertEncoded, DWORD cbCertEncoded)|Out
+crypt32.dll|HCERTSTORE CertOpenStore( LPCSTR lpszStoreProvider, DWORD dwMsgAndCertEncodingType, HCRYPTPROV_LEGACY hCryptProv, DWORD dwFlags, const void* pvPara)|Out
+crypt32.dll|HCERTSTORE CertOpenSystemStoreA( HCRYPTPROV_LEGACY hprov, LPTCSTR szSubsystemProtocol)|Out
+crypt32.dll|HCERTSTORE CertOpenSystemStoreW( HCRYPTPROV_LEGACY hprov, LPTCSTR szSubsystemProtocol)|Out
+crypt32.dll|BOOL CryptDecodeMessage( DWORD dwMsgTypeFlags, PCRYPT_DECRYPT_MESSAGE_PARA pDecryptPara, PCRYPT_VERIFY_MESSAGE_PARA pVerifyPara, DWORD dwSignerIndex, const BYTE* pbEncodedBlob, DWORD cbEncodedBlob, DWORD dwPrevInnerContentType, DWORD* pdwMsgType, DWORD* pdwInnerContentType, BYTE* pbDecoded, DWORD* pcbDecoded, PCCERT_CONTEXT* ppXchgCert, PCCERT_CONTEXT* ppSignerCert)|Out|FailureIfNullRet
+crypt32.dll|BOOL CryptDecodeObjectEx( DWORD dwCertEncodingType, LPCSTR lpszStructType, const BYTE* pbEncoded, DWORD cbEncoded, DWORD dwFlags, PCRYPT_DECODE_PARA pDecodePara, void* pvStructInfo, DWORD* pcbStructInfo)|Out|FailureIfNullRet 
+crypt32.dll|BOOL CryptDecryptMessage( PCRYPT_DECRYPT_MESSAGE_PARA pDecryptPara, const BYTE* pbEncryptedBlob, DWORD cbEncryptedBlob, BYTE* pbDecrypted, DWORD* pcbDecrypted, PCCERT_CONTEXT* ppXchgCert)|Out|FailureIfNullRet 
+crypt32.dll|BOOL CryptEncryptMessage( PCRYPT_ENCRYPT_MESSAGE_PARA pEncryptPara, DWORD cRecipientCert, PCCERT_CONTEXT* rgpRecipientCert, const BYTE* pbToBeEncrypted, DWORD cbToBeEncrypted, BYTE* pbEncryptedBlob, DWORD* pcbEncryptedBlob);|Out|FailureIfNullRet 
+crypt32.dll|BOOL CryptHashMessage( PCRYPT_HASH_MESSAGE_PARA pHashPara, BOOL fDetachedHash, DWORD cToBeHashed, const BYTE** rgpbToBeHashed, DWORD* rgcbToBeHashed, BYTE* pbHashedBlob, DWORD* pcbHashedBlob, BYTE* pbComputedHash, DWORD* pcbComputedHash)|Out|FailureIfNullRet
+crypt32.dll|BOOL CryptProtectData( DATA_BLOB* pDataIn, LPCWSTR szDataDescr, DATA_BLOB* pOptionalEntropy, PVOID pvReserved, CRYPTPROTECT_PROMPTSTRUCT* pPromptStruct, DWORD dwFlags, DATA_BLOB* pDataOut)|Out|FailureIfNullRet 
+crypt32.dll|BOOL CryptUnprotectData( DATA_BLOB* pDataIn, LPWSTR* ppszDataDescr, DATA_BLOB* pOptionalEntropy, PVOID pvReserved, CRYPTPROTECT_PROMPTSTRUCT* pPromptStruct, DWORD dwFlags, DATA_BLOB* pDataOut)|Out|FailureIfNullRet 
+ 

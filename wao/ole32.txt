@@ -1,0 +1,4 @@
+ole32.dll|HRESULT CoInitializeSecurity( PSECURITY_DESCRIPTOR pVoid, LONG cAuthSvc, SOLE_AUTHENTICATION_SERVICE * asAuthSvc, void * pReserved1, DWORD dwAuthnLevel, DWORD dwImpLevel, SOLE_AUTHENTICATION_LIST * pAuthList, DWORD dwCapabilities, void * pReserved3)|Out|FailureIfNotNullRet
+ole32.dll|CoCreateInstance(  REFCLSID rclsid, LPUNKNOWN pUnkOuter, DWORD dwClsContext, REFIID riid, LPVOID * ppv)|Out|FailureIfNotNullRet
+ole32.dll|HRESULT CoInitializeEx( void * pvReserved, DWORD dwCoInit)|Out|FailureIfNotNullRet
+ole32.dll|WINOLEAPI OleInitialize( LPVOID pvReserved )|Out|FailureIfNotNullRet

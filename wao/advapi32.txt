@@ -1,0 +1,64 @@
+advapi32.dll|BOOL CryptAcquireContextA( HCRYPTPROV* phProv, LPCSTR  pszContainer, LPCSTR  pszProvider, DWORD dwProvType, DWORD dwFlags)|Out|FailureIfNullRet
+advapi32.dll|BOOL CryptAcquireContextW( HCRYPTPROV* phProv, LPCWSTR pszContainer, LPCWSTR pszProvider, DWORD dwProvType, DWORD dwFlags)|Out|FailureIfNullRet
+advapi32.dll|BOOL CryptCreateHash( HCRYPTPROV hProv, ALG_ID Algid, HCRYPTKEY hKey, DWORD dwFlags, HCRYPTHASH* phHash)|Out|FailureIfNullRet
+advapi32.dll|BOOL CryptDecrypt( HCRYPTKEY hKey, HCRYPTHASH hHash, BOOL Final, DWORD dwFlags, BYTE* pbData, DWORD* pdwDataLen)|Out|FailureIfNullRet
+advapi32.dll|BOOL CryptEncrypt( HCRYPTKEY hKey, HCRYPTHASH hHash, BOOL Final, DWORD dwFlags, BYTE* pbData, DWORD* pdwDataLen, DWORD dwBufLen)|Out|FailureIfNullRet
+advapi32.dll|BOOL CryptExportKey( HCRYPTKEY hKey, HCRYPTKEY hExpKey, DWORD dwBlobType, DWORD dwFlags, BYTE* pbData, DWORD* pdwDataLen)|Out|FailureIfNullRet
+advapi32.dll|BOOL CryptGenKey( HCRYPTPROV hProv, ALG_ID Algid, DWORD dwFlags, HCRYPTKEY* phKey)|Out|FailureIfNullRet
+advapi32.dll|BOOL CryptHashData( HCRYPTHASH hHash, BYTE* pbData, DWORD dwDataLen, DWORD dwFlags)|Out|FailureIfNullRet
+advapi32.dll|BOOL GetUserNameA( LPSTR  lpBuffer, LPDWORD lpnSize)|Out|FailureIfNullRet
+advapi32.dll|BOOL GetUserNameW( LPWSTR lpBuffer, LPDWORD lpnSize)|Out|FailureIfNullRet
+advapi32.dll|BOOL LookupAccountSidW( LPCWSTR lpSystemName, PSID lpSid, LPWSTR lpName, LPDWORD cchName, LPWSTR lpReferencedDomainName, LPDWORD cchReferencedDomainName, PSID_NAME_USE peUse)|Out|FailureIfNullRet
+advapi32.dll|LONG RegCloseKey( HKEY hKey)|FailureIfNotNullRet
+advapi32.dll|LONG RegCreateKeyExA( HKEY hKey, LPCSTR  lpSubKey, DWORD Reserved, LPSTR  lpClass, DWORD dwOptions, REGSAM samDesired, LPSECURITY_ATTRIBUTES lpSecurityAttributes, PHKEY phkResult, LPDWORD lpdwDisposition)|Out|FailureIfNotNullRet
+advapi32.dll|LONG RegCreateKeyExW( HKEY hKey, LPCWSTR lpSubKey, DWORD Reserved, LPWSTR lpClass, DWORD dwOptions, REGSAM samDesired, LPSECURITY_ATTRIBUTES lpSecurityAttributes, PHKEY phkResult, LPDWORD lpdwDisposition)|Out|FailureIfNotNullRet
+advapi32.dll|LONG RegDeleteKeyA( HKEY hKey, LPCSTR  lpSubKey)|FailureIfNotNullRet
+advapi32.dll|LONG RegDeleteKeyW( HKEY hKey, LPCWSTR lpSubKey)|FailureIfNotNullRet
+advapi32.dll|LONG RegDeleteValueA( HKEY hKey, LPCSTR  lpValueName)|FailureIfNotNullRet
+advapi32.dll|LONG RegDeleteValueW( HKEY hKey, LPCWSTR lpValueName)|FailureIfNotNullRet
+advapi32.dll|LONG RegEnumKeyExA( HKEY hKey, DWORD dwIndex, LPSTR  lpName, LPDWORD lpcName, LPDWORD lpReserved, LPSTR  lpClass, LPDWORD lpcClass, PFILETIME lpftLastWriteTime)|Out|FailureIfNotNullRet
+advapi32.dll|LONG RegEnumKeyExW( HKEY hKey, DWORD dwIndex, LPWSTR lpName, LPDWORD lpcName, LPDWORD lpReserved, LPWSTR lpClass, LPDWORD lpcClass, PFILETIME lpftLastWriteTime)|Out|FailureIfNotNullRet
+advapi32.dll|LONG RegEnumKeyW( HKEY hKey, DWORD dwIndex, LPWSTR lpName, DWORD cchName)|Out|FailureIfNotNullRet
+advapi32.dll|LONG RegEnumValueA( HKEY hKey, DWORD dwIndex, LPSTR  lpValueName, LPDWORD lpcValueName, LPDWORD lpReserved, LPDWORD lpType, LPBYTE lpData, LPDWORD lpcbData)|Out|FailureIfNotNullRet
+advapi32.dll|LONG RegEnumValueW( HKEY hKey, DWORD dwIndex, LPWSTR lpValueName, LPDWORD lpcValueName, LPDWORD lpReserved, LPDWORD lpType, LPBYTE lpData, LPDWORD lpcbData)|Out|FailureIfNotNullRet
+advapi32.dll|LONG RegOpenKeyExA( HKEY hKey, LPCSTR  lpSubKey, DWORD ulOptions, REGSAM samDesired, PHKEY phkResult)|Out|FailureIfNotNullRet
+advapi32.dll|LONG RegOpenKeyExW( HKEY hKey, LPCWSTR lpSubKey, DWORD ulOptions, REGSAM samDesired, PHKEY phkResult)|Out|FailureIfNotNullRet
+advapi32.dll|LONG RegQueryInfoKeyA( HKEY hKey, LPSTR  lpClass, LPDWORD lpcClass, LPDWORD lpReserved, LPDWORD lpcSubKeys, LPDWORD lpcMaxSubKeyLen, LPDWORD lpcMaxClassLen, LPDWORD lpcValues, LPDWORD lpcMaxValueNameLen, LPDWORD lpcMaxValueLen, LPDWORD lpcbSecurityDescriptor, PFILETIME lpftLastWriteTime)|Out|FailureIfNotNullRet
+advapi32.dll|LONG RegQueryInfoKeyW( HKEY hKey, LPWSTR lpClass, LPDWORD lpcClass, LPDWORD lpReserved, LPDWORD lpcSubKeys, LPDWORD lpcMaxSubKeyLen, LPDWORD lpcMaxClassLen, LPDWORD lpcValues, LPDWORD lpcMaxValueNameLen, LPDWORD lpcMaxValueLen, LPDWORD lpcbSecurityDescriptor, PFILETIME lpftLastWriteTime)|Out|FailureIfNotNullRet
+advapi32.dll|LONG RegQueryValueExA( HKEY hKey, LPCSTR  lpValueName, LPDWORD lpReserved, LPDWORD lpType, LPBYTE lpData, LPDWORD lpcbData)|Out|FailureIfNotNullRet
+advapi32.dll|LONG RegQueryValueExW( HKEY hKey, LPCWSTR lpValueName, LPDWORD lpReserved, LPDWORD lpType, LPBYTE lpData, LPDWORD lpcbData)|Out|FailureIfNotNullRet
+advapi32.dll|LONG RegSetValueExA( HKEY hKey, LPCSTR  lpValueName, DWORD Reserved, DWORD dwType, const BYTE* lpData, DWORD cbData)|Out|FailureIfNotNullRet
+advapi32.dll|LONG RegSetValueExW( HKEY hKey, LPCWSTR lpValueName, DWORD Reserved, DWORD dwType, const BYTE* lpData, DWORD cbData)|Out|FailureIfNotNullRet
+advapi32.dll|BOOL ControlService( SC_HANDLE hService, DWORD dwControl, LPSERVICE_STATUS lpServiceStatus)|Out|FailureIfNullRet
+advapi32.dll|SC_HANDLE CreateServiceA( SC_HANDLE hSCManager, LPCSTR  lpServiceName, LPCSTR  lpDisplayName, DWORD dwDesiredAccess, DWORD dwServiceType, DWORD dwStartType, DWORD dwErrorControl, LPCSTR  lpBinaryPathName, LPCSTR  lpLoadOrderGroup, LPDWORD lpdwTagId, LPCSTR  lpDependencies, LPCSTR  lpServiceStartName, LPCSTR  lpPassword)|Out
+advapi32.dll|SC_HANDLE CreateServiceW( SC_HANDLE hSCManager, LPCWSTR lpServiceName, LPCWSTR lpDisplayName, DWORD dwDesiredAccess, DWORD dwServiceType, DWORD dwStartType, DWORD dwErrorControl, LPCWSTR lpBinaryPathName, LPCWSTR lpLoadOrderGroup, LPDWORD lpdwTagId, LPCWSTR lpDependencies, LPCWSTR lpServiceStartName, LPCWSTR lpPassword)|Out
+advapi32.dll|BOOL DeleteService( SC_HANDLE hService)|FailureIfNullRet
+advapi32.dll|BOOL EnumServicesStatusA( SC_HANDLE hSCManager, DWORD dwServiceType, DWORD dwServiceState, LPENUM_SERVICE_STATUS lpServices, DWORD cbBufSize, LPDWORD pcbBytesNeeded, LPDWORD lpServicesReturned, LPDWORD lpResumeHandle)|Out|FailureIfNullRet
+advapi32.dll|BOOL EnumServicesStatusW( SC_HANDLE hSCManager, DWORD dwServiceType, DWORD dwServiceState, LPENUM_SERVICE_STATUS lpServices, DWORD cbBufSize, LPDWORD pcbBytesNeeded, LPDWORD lpServicesReturned, LPDWORD lpResumeHandle)|Out|FailureIfNullRet
+advapi32.dll|SC_HANDLE OpenSCManagerA( LPCSTR  lpMachineName, LPCSTR  lpDatabaseName, DWORD dwDesiredAccess)|FailureIfNullRet
+advapi32.dll|SC_HANDLE OpenSCManagerW( LPCWSTR lpMachineName, LPCWSTR lpDatabaseName, DWORD dwDesiredAccess)|FailureIfNullRet
+advapi32.dll|SC_HANDLE OpenServiceA( SC_HANDLE hSCManager, LPCSTR  lpServiceName, DWORD dwDesiredAccess)|FailureIfNullRet
+advapi32.dll|SC_HANDLE OpenServiceW( SC_HANDLE hSCManager, LPCWSTR lpServiceName, DWORD dwDesiredAccess)|FailureIfNullRet
+advapi32.dll|BOOL StartServiceA( SC_HANDLE hService, DWORD dwNumServiceArgs, LPCTSTR* lpServiceArgVectors)|Out|FailureIfNullRet
+advapi32.dll|BOOL StartServiceW( SC_HANDLE hService, DWORD dwNumServiceArgs, LPCTSTR* lpServiceArgVectors)|Out|FailureIfNullRet
+advapi32.dll|BOOL LookupPrivilegeValueW( LPCWSTR lpSystemName, LPCWSTR lpName, PLUID lpLuid)|Out|FailureIfNullRet
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

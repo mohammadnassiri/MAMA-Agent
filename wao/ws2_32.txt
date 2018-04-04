@@ -1,0 +1,39 @@
+ws2_32.dll|SOCKET WSAAccept( SOCKET Socket, struct sockaddr* addr, LPINT addrlen, LPCONDITIONPROC lpfnCondition, DWORD dwCallbackData)|Out|FailureIfRetValue=-1
+ws2_32.dll|int WSAConnect( SOCKET Socket, const struct sockaddr* name, int namelen, LPWSABUF lpCallerData, LPWSABUF lpCalleeData, LPQOS lpSQOS, LPQOS lpGQOS)|Out|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|int WSARecv( SOCKET Socket, LPWSABUF lpBuffers, DWORD dwBufferCount, LPDWORD lpNumberOfBytesRecvd, LPDWORD lpFlags, LPWSAOVERLAPPED lpOverlapped, LPWSAOVERLAPPED_COMPLETION_ROUTINE lpCompletionRoutine)|Out|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|int WSARecvFrom( SOCKET Socket, LPWSABUF lpBuffers, DWORD dwBufferCount, LPDWORD lpNumberOfBytesRecvd, LPDWORD lpFlags, struct sockaddr* lpFrom, LPINT lpFromlen, LPWSAOVERLAPPED lpOverlapped, LPWSAOVERLAPPED_COMPLETION_ROUTINE lpCompletionRoutine)|Out|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|int WSASend( SOCKET Socket, LPWSABUF lpBuffers, DWORD dwBufferCount, LPDWORD lpNumberOfBytesSent, DWORD dwFlags, LPWSAOVERLAPPED lpOverlapped, LPWSAOVERLAPPED_COMPLETION_ROUTINE lpCompletionRoutine)|Out|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|int WSASendTo( SOCKET Socket, LPWSABUF lpBuffers, DWORD dwBufferCount, LPDWORD lpNumberOfBytesSent, DWORD dwFlags, const struct sockaddr* lpTo, int iToLen, LPWSAOVERLAPPED lpOverlapped, LPWSAOVERLAPPED_COMPLETION_ROUTINE lpCompletionRoutine)|Out|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|SOCKET WSASocketA( int af, int type, int protocol, LPWSAPROTOCOL_INFOA lpProtocolInfo, UINT group, DWORD dwFlags)|Out|FailureIfRetValue=-1
+ws2_32.dll|SOCKET WSASocketW( int af, int type, int protocol, LPWSAPROTOCOL_INFOW lpProtocolInfo, UINT group, DWORD dwFlags)|Out|FailureIfRetValue=-1
+ws2_32.dll|int WSAStartup( WORD wVersionRequested, LPWSADATA lpWSAData)|Out
+ws2_32.dll|SOCKET accept( SOCKET Socket, struct sockaddr* addr, int* addrlen)|Out|FailureIfRetValue=-1
+ws2_32.dll|int bind(SOCKET Socket, const struct sockaddr* name, int namelen)|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|int closesocket( SOCKET Socket)|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|int connect(SOCKET Socket, const struct sockaddr* name, int namelen)|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|int WSAAPI getaddrinfo( const char FAR* nodename, const char FAR* servname, const struct addrinfo FAR* hints, struct addrinfo FAR** res)|Out|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|struct hostent* FAR gethostbyname( const char* name)|Out|FailureIfNullRet
+ws2_32.dll|int getsockname( SOCKET Socket, struct sockaddr* name, int* namelen)|Out|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|int ioctlsocket( SOCKET Socket, long cmd, u_long* argp)|Out|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|int listen( SOCKET Socket, int backlog)|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|int recv( SOCKET Socket, PBYTE buf:PointedDataSize=Arg3, int len, int flags)|Out|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|int recvfrom( SOCKET Socket, PBYTE buf:PointedDataSize=Arg3, int len, int flags, struct sockaddr* from, int* fromlen)|Out|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|int select(int nfds, fd_set* readfds, fd_set* writefds, fd_set* exceptfds, const struct timeval* timeout)|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|int send( SOCKET Socket, PBYTE buf:PointedDataSize=Arg3, int len, int flags)|Out|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|int sendto( SOCKET Socket, PBYTE buf:PointedDataSize=Arg3, int len, int flags, const struct sockaddr* to, int tolen)|Out|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|int setsockopt( SOCKET Socket, int level, int optname, const byte* optval:PointedDataSize=Arg5, int optlen)|Out|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|int shutdown(SOCKET Socket,int how)|FailureIfRetValue=0xFFFFFFFF
+ws2_32.dll|SOCKET WSAAPI socket( int af, int type, int protocol)|FailureIfRetValue=-1
+
+
+
+
+
+
+
+
+
+
+
+
+

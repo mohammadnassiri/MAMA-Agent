@@ -1,0 +1,4 @@
+shell32.dll|BOOL ReadCabinetState(CABINETSTATE *lpState, int cbLength)|Out|FailureIfNullRet
+shell32.dll|HRESULT SHGetFolderPathW(HWND hwndOwner, int nFolder, HANDLE hToken, DWORD dwFlags, LPWSTR pszPath)|Out|FailureIfNotNullRet
+shell32.dll|HRESULT SHGetSpecialFolderLocation( HWND hwndOwner, int nFolder, LPITEMIDLIST* ppidl)|Out|FailureIfNotNullRet
+shell32.dll|BOOL ShellExecuteExW( LPSHELLEXECUTEINFO lpExecInfo)|Out|FailureIfNullRet

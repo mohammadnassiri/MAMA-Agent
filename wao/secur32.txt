@@ -1,0 +1,2 @@
+secur32.dll|BOOLEAN GetUserNameExA( EXTENDED_NAME_FORMAT NameFormat, LPSTR  lpNameBuffer, PULONG lpnSize)|Out|FailureIfNullRet
+secur32.dll|BOOLEAN GetUserNameExW( EXTENDED_NAME_FORMAT NameFormat, LPWSTR lpNameBuffer, PULONG lpnSize)|Out|FailureIfNullRet

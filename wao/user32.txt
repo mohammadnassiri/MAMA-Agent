@@ -1,0 +1,23 @@
+user32.dll|BOOL EnumWindows(WNDENUMPROC lpEnumFunc,LPARAM lParam)|Out|FailureIfNullRet
+user32.dll|BOOL GetCursorPos(LPPOINT lpPoint)|Out|FailureIfNullRet
+user32.dll|int GetSystemMetrics(int nIndex)
+user32.dll|BOOL ExitWindowsEx(UINT uFlags,DWORD dwReason)|FailureIfNullRet
+user32.dll|SHORT GetAsyncKeyState(int vKey)
+user32.dll|SHORT GetKeyState(int nVirtKey)
+user32.dll|BOOL GetKeyboardState(PBYTE lpKeyState)|Out|FailureIfNullRet
+user32.dll|BOOL SendNotifyMessageA(HWND hWnd,UINT Msg,WPARAM wParam,LPARAM lParam)|Out|FailureIfNullRet
+user32.dll|BOOL SendNotifyMessageW(HWND hWnd,UINT Msg,WPARAM wParam,LPARAM lParam)|Out|FailureIfNullRet
+user32.dll|HHOOK SetWindowsHookExA(int idHook,HOOKPROC lpfn,HINSTANCE hMod,DWORD dwThreadId)
+user32.dll|HHOOK SetWindowsHookExW(int idHook,HOOKPROC lpfn,HINSTANCE hMod,DWORD dwThreadId)
+user32.dll|BOOL UnhookWindowsHookEx(HHOOK hhk)|FailureIfNullRet
+user32.dll|int DrawTextExA(HDC hdc,LPSTR lpchText,int cchText,LPRECT lprc,UINT dwDTFormat,LPDRAWTEXTPARAMS lpDTParams )|Out
+user32.dll|int DrawTextExW(HDC hdc,LPWSTR lpchText,int cchText,LPRECT lprc,UINT dwDTFormat,LPDRAWTEXTPARAMS lpDTParams )|Out
+user32.dll|HWND FindWindowA(LPCSTR lpClassName,LPCSTR lpWindowName)|FailureIfNullRet
+user32.dll|HWND FindWindowExA(HWND hwndParent,HWND hwndChildAfter,LPCSTR lpszClass,LPCSTR lpszWindow)|FailureIfNullRet
+user32.dll|HWND FindWindowExW(HWND hwndParent,HWND hwndChildAfter,LPCWSTR lpszClass,LPCWSTR lpszWindow)|FailureIfNullRet
+user32.dll|HWND FindWindowW(LPCWSTR lpClassName,LPCWSTR lpWindowName)|FailureIfNullRet
+user32.dll|HWND GetForegroundWindow()|FailureIfNullRet
+user32.dll|int LoadStringA(HINSTANCE hInstance,UINT uID,LPSTR lpBuffer,int nBufferMax)|Out
+user32.dll|int LoadStringW(HINSTANCE hInstance,UINT uID,LPWSTR lpBuffer,int nBufferMax)|Out
+user32.dll|int MessageBoxTimeoutA(HWND hWnd,LPCSTR lpText,LPCSTR lpCaption,UINT uType:Define=user32.dll/MessageBox_Type.txt,WORD wLanguageId,DWORD dwTimeOutInMs)|BlockingCall |ReturnDefine=user32.dll/MessageBox_Return.txt |FailureIfNullRet
+user32.dll|int MessageBoxTimeoutW(HWND hWnd,LPCWSTR lpText,LPCWSTR lpCaption,UINT uType:Define=user32.dll/MessageBox_Type.txt,WORD wLanguageId,DWORD dwTimeOutInMs)|BlockingCall |ReturnDefine=user32.dll/MessageBox_Return.txt |FailureIfNullRet

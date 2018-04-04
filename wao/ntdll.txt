@@ -1,0 +1,100 @@
+ntdll.dll|PVOID RtlAddVectoredContinueHandler(ULONG First,PVECTORED_EXCEPTION_HANDLER Handler)
+ntdll.dll|RtlAddVectoredExceptionHandler(ULONG FirstHandler,PVECTORED_EXCEPTION_HANDLER VectoredHandler)|Out
+ntdll.dll|RtlRemoveVectoredContinueHandler(UNKNOWN)
+ntdll.dll|RtlRemoveVectoredExceptionHandler(UNKNOWN)
+ntdll.dll|NtCreateDirectoryObject(PHANDLE DirectoryHandle,ACCESS_MASK DesiredAccess,POBJECT_ATTRIBUTES ObjectAttributes)|Out|FailureIfNotNullRet
+ntdll.dll|NTSTATUS NtCreateFile( PHANDLE FileHandle,ACCESS_MASK DesiredAccess,POBJECT_ATTRIBUTES ObjectAttributes,PIO_STATUS_BLOCK IoStatusBlock,PLARGE_INTEGER AllocationSize,ULONG FileAttributes,ULONG ShareAccess,ULONG CreateDisposition,ULONG CreateOptions,PVOID EaBuffer,ULONG EaLength)|Out|FailureIfNotNullRet
+ntdll.dll|NtDeleteFile(POBJECT_ATTRIBUTES ObjectAttributes)|FailureIfNotNullRet
+ntdll.dll|NTSTATUS NtDeviceIoControlFile(HANDLE FileHandle,HANDLE Event,PIO_APC_ROUTINE ApcRoutine,PVOID ApcContext,PIO_STATUS_BLOCK IoStatusBlock,ULONG IoControlCode,PVOID InputBuffer,ULONG InputBufferLength,PVOID OutputBuffer,ULONG OutputBufferLength)|Out|FailureIfNotNullRet
+ntdll.dll|NtOpenDirectoryObject(PHANDLE pHandle,ACCESS_MASK DesiredAccess,POBJECT_ATTRIBUTES ObjectAttributes)|Out|FailureIfNotNullRet
+ntdll.dll|NtOpenFile(PHANDLE FileHandle,ACCESS_MASK DesiredAccess,POBJECT_ATTRIBUTES ObjectAttributes,PIO_STATUS_BLOCK IoStatusBlock,ULONG ShareAccess,ULONG OpenOptions)|Out|FailureIfNotNullRet
+ntdll.dll|NtQueryAttributesFile(POBJECT_ATTRIBUTES ObjectAttributes,PFILE_BASIC_INFORMATION FileAttributes)|Out|FailureIfNotNullRet
+ntdll.dll|NtQueryDirectoryFile(HANDLE FileHandle,HANDLE Event ,PIO_APC_ROUTINE ApcRoutine ,PVOID ApcContext ,PIO_STATUS_BLOCK IoStatusBlock,PVOID FileInformation,ULONG Length,FILE_INFORMATION_CLASS FileInformationClass,BOOLEAN ReturnSingleEntry,PUNICODE_STRING FileMask ,BOOLEAN RestartScan)|Out|FailureIfNotNullRet
+ntdll.dll|NtQueryFullAttributesFile(POBJECT_ATTRIBUTES ObjectAttributes,PVOID Attributes)|Out|FailureIfNotNullRet
+ntdll.dll|NtQueryInformationFile(HANDLE FileHandle,PIO_STATUS_BLOCK IoStatusBlock,PVOID FileInformation,ULONG Length,FILE_INFORMATION_CLASS FileInformationClass)|Out|FailureIfNotNullRet
+ntdll.dll|NtReadFile(HANDLE FileHandle,HANDLE Event,PIO_APC_ROUTINE ApcRoutine,PVOID ApcContext,PIO_STATUS_BLOCK IoStatusBlock,PVOID Buffer:PointedDataSize=Arg7,ULONG Length,PLARGE_INTEGER ByteOffset,PULONG Key)|Out|FailureIfNotNullRet
+ntdll.dll|NtSetInformationFile(HANDLE FileHandle,PIO_STATUS_BLOCK IoStatusBlock,PVOID FileInformation,ULONG Length,FILE_INFORMATION_CLASS FileInformationClass)|Out|FailureIfNotNullRet
+ntdll.dll|NtWriteFile(HANDLE FileHandle,HANDLE Event,PIO_APC_ROUTINE ApcRoutine,PVOID ApcContext,PIO_STATUS_BLOCK IoStatusBlock,PVOID Buffer:PointedDataSize=Arg7,ULONG Length,PLARGE_INTEGER ByteOffset,PULONG Key)|Out|FailureIfNotNullRet
+ntdll.dll|NtAllocateVirtualMemory(HANDLE ProcessHandle,PVOID* BaseAddress,ULONG ZeroBits,PULONG RegionSize,ULONG AllocationType,ULONG Protect)|Out|FailureIfNotNullRet
+ntdll.dll|NtCreateProcess(PHANDLE ProcessHandle,ACCESS_MASK DesiredAccess,POBJECT_ATTRIBUTES ObjectAttributes ,HANDLE ParentProcess,BOOLEAN InheritObjectTable,HANDLE SectionHandle ,HANDLE DebugPort ,HANDLE ExceptionPort)|Out|FailureIfNotNullRet
+ntdll.dll|NtCreateProcessEx(UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN)|FailureIfNotNullRet
+ntdll.dll|NtCreateSection(PHANDLE SectionHandle,ULONG DesiredAccess,POBJECT_ATTRIBUTES ObjectAttributes ,PLARGE_INTEGER MaximumSize ,ULONG PageAttributess,ULONG SectionAttributes,HANDLE FileHandle)|Out|FailureIfNotNullRet
+ntdll.dll|NTSTATUS NtCreateThread(PHANDLE ThreadHandle,ACCESS_MASK DesiredAccess,POBJECT_ATTRIBUTES ObjectAttributes,HANDLE ProcessHandle,PCLIENT_ID ClientId,PCONTEXT ThreadContext,PINITIAL_TEB InitialTeb,BOOLEAN CreateSuspended)|Out|FailureIfNotNullRet
+ntdll.dll|NTSTATUS NtCreateThreadEx(PHANDLE ThreadHandle,ACCESS_MASK DesiredAccess,POBJECT_ATTRIBUTES ObjectAttributes,HANDLE ProcessHandle,LPTHREAD_START_ROUTINE lpStartAddress,LPVOID lpParameter,SIZE_T CreateSuspended,SIZE_T StackZeroBits,SIZE_T SizeOfStackCommit,SIZE_T SizeOfStackReserve,LPVOID lpBytesBuffer)|Out|FailureIfNotNullRet
+ntdll.dll|NtCreateUserProcess(HANDLE ProcessHandle,HANDLE ThreadHandle,UNKNOWN,UNKNOWN,PVOID ProcessSecurityDescriptor,PVOID ThreadSecurityDescriptor,UNKNOWN,UNKNOWN,PRTL_USER_PROCESS_PARAMETERS ProcessParameters,UNKNOWN,UNKNOWN)|Out|FailureIfNotNullRet
+ntdll.dll|NtFreeVirtualMemory(HANDLE ProcessHandle,PVOID* BaseAddress,PULONG RegionSize,ULONG FreeType)|FailureIfNotNullRet
+ntdll.dll|NtGetContextThread(HANDLE ThreadHandle,PCONTEXT pContext)|Out|FailureIfNotNullRet
+ntdll.dll|NtMakePermanentObject(HANDLE ObjectHandle)|FailureIfNotNullRet
+ntdll.dll|NtMakeTemporaryObject(HANDLE ObjectHandle)|FailureIfNotNullRet
+ntdll.dll|NtMapViewOfSection(HANDLE SectionHandle,HANDLE ProcessHandle,PVOID* BaseAddress ,ULONG ZeroBits ,ULONG CommitSize,PLARGE_INTEGER SectionOffset ,PULONG ViewSize,SECTION_INHERIT InheritDisposition,ULONG AllocationType ,ULONG Protect)|FailureIfNotNullRet
+ntdll.dll|NtOpenProcess(PHANDLE pHandle,ACCESS_MASK DesiredAccess,POBJECT_ATTRIBUTES ObjectAttributes,PCLIENT_ID ClientId)|Out|FailureIfNotNullRet
+ntdll.dll|NtOpenSection(PHANDLE pHandle,ACCESS_MASK DesiredAccess,POBJECT_ATTRIBUTES ObjectAttributes)|Out|FailureIfNotNullRet
+ntdll.dll|NTSTATUS NtOpenThread(PHANDLE ThreadHandle,ACCESS_MASK DesiredAccess,POBJECT_ATTRIBUTES ObjectAttributes,PCLIENT_ID ClientId)|Out|FailureIfNotNullRet
+ntdll.dll|NtProtectVirtualMemory(HANDLE ProcessHandle,PVOID* BaseAddress,PULONG NumberOfBytesToProtect,ULONG NewAccessProtection,PULONG OldAccessProtection)|Out|FailureIfNotNullRet
+ntdll.dll|NtQueueApcThread(HANDLE ThreadHandle,PIO_APC_ROUTINE ApcRoutine,PVOID ApcRoutineContext ,PIO_STATUS_BLOCK ApcStatusBlock,ULONG ApcReserved)|FailureIfNotNullRet
+ntdll.dll|NtReadVirtualMemory(HANDLE ProcessHandle,PVOID BaseAddress,PVOID Buffer:PointedDataSize=Arg5,ULONG NumberOfBytesToRead,PULONG NumberOfBytesReaded)|Out|FailureIfNotNullRet
+ntdll.dll|NtResumeThread(HANDLE ThreadHandle,PULONG SuspendCount)|Out|FailureIfNotNullRet
+ntdll.dll|NtSetContextThread(HANDLE ThreadHandle,PCONTEXT Context)|FailureIfNotNullRet
+ntdll.dll|NtSuspendThread(HANDLE ThreadHandle,PULONG PreviousSuspendCount)|Out|FailureIfNotNullRet
+ntdll.dll|NtTerminateProcess(HANDLE ProcessHandle,NTSTATUS ExitStatus)|FailureIfNotNullRet
+ntdll.dll|NtTerminateThread(HANDLE ThreadHandle,NTSTATUS ExitStatus)|FailureIfNotNullRet
+ntdll.dll|NtUnmapViewOfSection(HANDLE ProcessHandle,PVOID BaseAddress)|FailureIfNotNullRet
+ntdll.dll|NtWriteVirtualMemory(HANDLE ProcessHandle,PVOID BaseAddress,PVOID Buffer:PointedDataSize=Arg4,ULONG BytesToWrite,PULONG WrittenBytes)|Out|FailureIfNotNullRet
+ntdll.dll|RtlCreateUserProcess(PUNICODE_STRING ImagePath,ULONG objAttr,PRTL_USER_PROCESS_PARAMETERS,PSECURITY_DESCRIPTOR ProcessSec,PSECURITY_DESCRIPTOR ThreadSec,HANDLE ParentProcess,BOOLEAN InheritHandles,HANDLE DebugPort,HANDLE ExceptionPort,PRTL_USER_PROCESS_INFORMATION ProcessInfo)|Out
+ntdll.dll|RtlCreateUserThread(HANDLE ProcessHandle,PSECURITY_DESCRIPTOR,BOOLEAN CreateSuspended,ULONG StackZeroBits,PULONG StackReserved,PULONG StackCommit,PVOID startAddr,PVOID StartParam,PHANDLE ThreadHandle,PCLIENT_ID)|Out
+ntdll.dll|NtCreateKey(PHANDLE pKeyHandle,ACCESS_MASK DesiredAccess,POBJECT_ATTRIBUTES ObjectAttributes,ULONG TitleIndex,PUNICODE_STRING Class ,ULONG CreateOptions,PULONG Disposition)|Out|FailureIfNotNullRet
+ntdll.dll|NtDeleteKey(HANDLE KeyHandle)|FailureIfNotNullRet
+ntdll.dll|NtDeleteValueKey(HANDLE KeyHandle,PUNICODE_STRING ValueName)|FailureIfNotNullRet
+ntdll.dll|NtEnumerateKey(HANDLE KeyHandle,ULONG Index,KEY_INFORMATION_CLASS KeyInformationClass,PVOID KeyInformation,ULONG Length,PULONG ResultLength)|Out|FailureIfNotNullRet
+ntdll.dll|NtEnumerateValueKey(HANDLE KeyHandle,ULONG Index,KEY_VALUE_INFORMATION_CLASS KeyValueInformation,PVOID KeyValueInformation,ULONG Length,PULONG ResultLength)|Out|FailureIfNotNullRet
+ntdll.dll|NtLoadKey(POBJECT_ATTRIBUTES DestinationKeyName,POBJECT_ATTRIBUTES HiveFileName)|FailureIfNotNullRet
+ntdll.dll|NtLoadKey2(POBJECT_ATTRIBUTES DestinationKeyName,POBJECT_ATTRIBUTES HiveFileName,ULONG Flags)|FailureIfNotNullRet
+ntdll.dll|NtLoadKeyEx( POBJECT_ATTRIBUTES TargetKey,POBJECT_ATTRIBUTES SourceFile,ULONG Flags,HANDLE TrustClassKey)|FailureIfNotNullRet
+ntdll.dll|NtOpenKey(PHANDLE pHandle,ACCESS_MASK DesiredAccess,POBJECT_ATTRIBUTES ObjectAttributes)|Out|FailureIfNotNullRet
+ntdll.dll|NtOpenKeyEx(PHANDLE KeyHandle,ACCESS_MASK DesiredAccess,POBJECT_ATTRIBUTES ObjectAttributes,ULONG OpenOptions)|Out|FailureIfNotNullRet
+ntdll.dll|NtQueryKey(HANDLE KeyHandle,KEY_INFORMATION_CLASS KeyInformationClass,PVOID KeyInformation,ULONG Length,PULONG ResultLength)|Out|FailureIfNotNullRet
+ntdll.dll|NtQueryMultipleValueKey(HANDLE KeyHandle,PKEY_MULTIPLE_VALUE_INFORMATION ValuesList,ULONG NumberOfValues,PVOID DataBuffer,ULONG BufferLength,PULONG RequiredLength)|Out|FailureIfNotNullRet
+ntdll.dll|NtQueryValueKey(HANDLE KeyHandle,PUNICODE_STRING ValueName,KEY_VALUE_INFORMATION_CLASS KeyValueInformationClass,PVOID KeyValueInformation,ULONG Length,PULONG ResultLength)|Out|FailureIfNotNullRet
+ntdll.dll|NtRenameKey(HANDLE KeyHandle,PUNICODE_STRING NewName)|FailureIfNotNullRet
+ntdll.dll|NtReplaceKey(POBJECT_ATTRIBUTES NewHiveFileName,HANDLE KeyHandle,POBJECT_ATTRIBUTES BackupHiveFileName)|FailureIfNotNullRet
+ntdll.dll|NtSaveKey(HANDLE KeyHandle,HANDLE FileHandle)|FailureIfNotNullRet
+ntdll.dll|NtSaveKeyEx(HANDLE KeyHandle,HANDLE FileHandle,ULONG Format)|FailureIfNotNullRet
+ntdll.dll|NtSetValueKey(HANDLE Hkey,PUNICODE_STRING ValueName,ULONG TitleIndex,ULONG Type,PVOID Data,ULONG DataSize)|FailureIfNotNullRet
+ntdll.dll|NtCreateMutant(PHANDLE MutantHandle,ACCESS_MASK DesiredAccess,POBJECT_ATTRIBUTES ObjectAttributes ,BOOLEAN InitialOwner)|Out|FailureIfNotNullRet
+ntdll.dll|NtDelayExecution(BOOLEAN Alertable,PLARGE_INTEGER DelayInterval)|FailureIfNotNullRet
+ntdll.dll|NTSTATUS NtQuerySystemTime(PLARGE_INTEGER SystemTime)|Out|FailureIfNotNullRet
+ntdll.dll|NTSTATUS NTAPI LdrGetDllHandle(PWORD pwPath,PVOID,PUNICODE_STRING ModuleFileName,PHANDLE pHModule)|Out|FailureIfNotNullRet
+ntdll.dll|NTSTATUS NTAPI LdrGetProcedureAddress(HMODULE ModuleHandle,PANSI_STRING FunctionName,WORD Ordinal,PVOID FunAddr)|Out|FailureIfNotNullRet
+ntdll.dll|NTSTATUS NTAPI LdrLoadDll(PWCHAR PathToFile,ULONG Flags,PUNICODE_STRING ModuleFileName,PHANDLE ModuleHandle);|Out|FailureIfNotNullRet
+ntdll.dll|NTSTATUS NTAPI LdrUnloadDll(HANDLE ModuleHandle);|FailureIfNotNullRet
+ntdll.dll|NtClose(HANDLE ObjectHandle)|FailureIfNotNullRet
+ntdll.dll|NtDuplicateObject(HANDLE SourceProcessHandle,PHANDLE SourceHandle,HANDLE TargetProcessHandle,PHANDLE TargetHandle,ACCESS_MASK DesiredAccess ,BOOLEAN InheritHandle,ULONG Options)|Out|FailureIfNotNullRet
+ntdll.dll|NtLoadDriver(PUNICODE_STRING DriverServiceName)|FailureIfNotNullRet
+ntdll.dll|NtUnloadDriver(PUNICODE_STRING DriverServiceName)|FailureIfNotNullRet
+ntdll.dll|RtlCompressBuffer(ULONG,PVOID,ULONG,PVOID,ULONG,ULONG,PULONG,PVOID)
+ntdll.dll|RtlDecompressBuffer(ULONG Format,PVOID DstBuf,ULONG DstBufSize,PVOID SrcBuf,SrcBufSize,PULONG DstSize)|Out
+ntdll.dll|RtlDecompressFragment(UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
