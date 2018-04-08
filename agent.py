@@ -169,6 +169,7 @@ if __name__ == '__main__':
     vbox = "win71"
     timeout = 120
     wao_thread_timeout = 150  # give some more time to terminate by itself
+    get_screen_shot = False  # set only true once time for pintool or wao
     screen_shot_time = 10
     screen_shot_thread_time = 20
     server = Server('http://localhost:8000/api/', vbox)
@@ -204,11 +205,12 @@ if __name__ == '__main__':
         print(result)
         result = server.result(file_id, result, "", None, "", None, 0)
     else:
-        # get a screenshot
-        print("(*) Start screenshot thread ...")
-        screen_shot = file_name + ".png"
-        screen_shot_thread = threading.Thread(target=__screen_shot, args={screen_shot, screen_shot_time})
-        screen_shot_thread.start()
+        if get_screen_shot:
+            # get a screenshot
+            print("(*) Start screenshot thread ...")
+            screen_shot = file_name + ".png"
+            screen_shot_thread = threading.Thread(target=__screen_shot, args={screen_shot, screen_shot_time})
+            screen_shot_thread.start()
 
         # set path of two tools and the file that will be traced
         wao_path = this_wao_path
@@ -243,9 +245,10 @@ if __name__ == '__main__':
         # final result
         result = "Process Done."
 
-        # check screen_shot thread and wait screen_shot_thread_time seconds before kill process
-        print("(*) Wait for screenshot thread ...")
-        screen_shot_thread.join(screen_shot_thread_time)
+        if get_screen_shot:
+            # check screen_shot thread and wait screen_shot_thread_time seconds before kill process
+            print("(*) Wait for screenshot thread ...")
+            screen_shot_thread.join(screen_shot_thread_time)
 
         # sending results
         print("(*) Sending results ...")
