@@ -169,8 +169,8 @@ if __name__ == '__main__':
     vbox = "win71"
     timeout = 120
     wao_thread_timeout = 150  # give some more time to terminate by itself
-    get_screen_shot = False  # set only true once time for pintool or wao
-    screen_shot_time = 10
+    get_screen_shot = True  # set only true once time for pintool or wao
+    screen_shot_time = 13
     screen_shot_thread_time = 20
     server = Server('http://localhost:8000/api/', vbox)
     current_dir = "C:/Users/MA/Desktop/work/vm-agent-server/agent/"
@@ -209,7 +209,7 @@ if __name__ == '__main__':
             # get a screenshot
             print("(*) Start screenshot thread ...")
             screen_shot = file_name + ".png"
-            screen_shot_thread = threading.Thread(target=__screen_shot, args={screen_shot, screen_shot_time})
+            screen_shot_thread = threading.Thread(target=__screen_shot, args=(screen_shot, screen_shot_time,))
             screen_shot_thread.start()
 
         # set path of two tools and the file that will be traced
