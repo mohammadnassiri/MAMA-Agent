@@ -291,3 +291,38 @@ ws2_32.dll|int sendto( SOCKET Socket, PBYTE buf:PointedDataSize=Arg3, int len, i
 ws2_32.dll|int setsockopt( SOCKET Socket, int level, int optname, const byte* optval:PointedDataSize=Arg5, int optlen)|Out|FailureIfRetValue=0xFFFFFFFF
 ws2_32.dll|int shutdown(SOCKET Socket,int how)|FailureIfRetValue=0xFFFFFFFF
 ws2_32.dll|SOCKET WSAAPI socket( int af, int type, int protocol)|FailureIfRetValue=-1
+
+;from paper
+advapi32.dll|BOOL GetSecurityDescriptorDacl( PSECURITY_DESCRIPTOR pSecurityDescriptor, LPBOOL lpbDaclPresent, PACL *pDacl, LPBOOL lpbDaclDefaulted)|Out|FailureIfNullRet
+advapi32.dll|LONG RegOpenCurrentUser( REGSAM samDesired, PHKEY phkResult)|Out|FailureIfNullRet
+kernel32.dll|HANDLE FindFirstFileA(LPCSTR lpFileName,LPWIN32_FIND_DATA lpFindFileData)|Out|FailureIfNullRet
+kernel32.dll|HANDLE FindFirstFileW(LPCWSTR lpFileName,LPWIN32_FIND_DATAW lpFindFileData)|Out|FailureIfNullRet
+kernel32.dll|DWORD GetModuleFileNameA(HMODULE hModule,LPSTR lpFilename,DWORD nSize)|Out
+kernel32.dll|DWORD GetModuleFileNameW(HMODULE hModule,LPWSTR lpFilename,DWORD nSize)|Out
+
+; from paper
+user32.dll|LRESULT CallNextHookEx(HHOOK hhk,int nCode,WPARAM wParam,LPARAM lParam)|Out
+kernel32.dll|HANDLE CreateMutexA(LPSECURITY_ATTRIBUTES lpMutexAttributes,BOOL bInitialOwner,LPCSTR lpName)|Out|FailureIfNullRet
+kernel32.dll|HANDLE CreateMutexExA(LPSECURITY_ATTRIBUTES lpMutexAttributes,LPCSTR lpName,DWORD dwFlags,DWORD dwDesiredAccess)|Out
+kernel32.dll|HANDLE CreateMutexExW(LPSECURITY_ATTRIBUTES lpMutexAttributes,LPCWSTR lpName,DWORD dwFlags,DWORD dwDesiredAccess)|Out
+kernel32.dll|HANDLE CreateMutexW(LPSECURITY_ATTRIBUTES lpMutexAttributes,BOOL bInitialOwner,LPCWSTR lpName)|Out|FailureIfNullRet
+kernel32.dll|LPVOID HeapAlloc(HANDLE hHeap,DWORD dwFlags,SIZE_T dwBytes)
+kernel32.dll|void GlobalMemoryStatus(LPMEMORYSTATUS lpBuffer)|Out
+storprop.dll|BOOL WINAPI DvdLauncher( HWND HWnd, CHAR DriveLetter)|Out|FailureIfNullRet
+kernel32.dll|LPVOID VirtualAllocEx(HANDLE hProcess,LPVOID lpAddress,SIZE_T dwSize,DWORD flAllocationType,DWORD flProtect)|Out
+kernel32.dll|HMODULE LoadLibraryA(LPCSTR lpFileName)|FailureIfNullRet
+kernel32.dll|HMODULE LoadLibraryExA(LPCSTR lpFileName,HANDLE hFile,DWORD dwFlags)|FailureIfNullRet
+kernel32.dll|HMODULE LoadLibraryExW(LPCWSTR lpFileName,HANDLE hFile,DWORD dwFlags)|FailureIfNullRet
+kernel32.dll|HMODULE LoadLibraryW(LPCWSTR lpFileName)|FailureIfNullRet
+kernel32.dll|BOOL CheckRemoteDebuggerPresent(HANDLE hProcess,PBOOL pbDebuggerPresent)|Out|FailureIfNullRet
+kernel32.dll|void OutputDebugStringW(LPCWSTR lpOutputString)
+user32.dll|HDC GetDC(HWND hWnd )|FailureIfNullRet
+user32.dll|HDC GetWindowDC(HWND hWnd )
+gdi32.dll|HDC CreateCompatibleDC( HDC hdc )|FailureIfNullRet
+gdi32.dll|HBITMAP CreateCompatibleBitmap( HDC hdc, int nWidth, int nHeight )|FailureIfNullRet
+gdi32.dll|HGDIOBJ SelectObject( HDC hdc, HGDIOBJ hgdiobj )
+gdi32.dll|BOOL BitBlt( HDC hdcDest, int nXDest, int nYDest, int nWidth, int nHeight, HDC hdcSrc, int nXSrc, int nYSrc, DWORD dwRop )|FailureIfNullRet
+
+
+
+

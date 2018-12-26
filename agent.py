@@ -10,8 +10,7 @@ import time
 
 
 class Server:
-
-    # author: https://gist.github.com/Integralist/3f004c3594bbf8431c15ed6db15809ae
+    # Server class by: https://gist.github.com/Integralist/3f004c3594bbf8431c15ed6db15809ae
 
     def __init__(self, url, vbox):
         self.url = url
@@ -20,7 +19,8 @@ class Server:
     def request(self):
         result = None
         url = self.url + 'request'
-        req = requests.post(url, data={'arch': "IMAGE_FILE_MACHINE_I386", 'vbox': self.vbox})  # IMAGE_FILE_MACHINE_I386 is x86
+        req = requests.post(url, data={'arch': "IMAGE_FILE_MACHINE_I386",
+                                       'vbox': self.vbox})  # IMAGE_FILE_MACHINE_I386 is x86
         if req.status_code == 200:
             result = req
         return result
@@ -62,8 +62,7 @@ class Server:
 
 
 class Executor:
-
-    # author: https://gist.github.com/mindprince/793ffd546126b7e2fae8
+    # Executor class by: https://gist.github.com/mindprince/793ffd546126b7e2fae8
     # Executor("command arg1 arg2", 10).run()
 
     def __init__(self, cmd, timeout=None):
@@ -107,7 +106,6 @@ class Trace:
         self.arch = arch
         self.timeout = timeout
 
-
     def wao(self):
         x = ""
         y = ""
@@ -128,7 +126,6 @@ class Trace:
             pass
         return sequence, x, y, z
 
-
     def pintool(self):
         status = 0
         x = ""
@@ -144,8 +141,10 @@ class Trace:
                 if x is not None:
                     if "We've finished dumping the remote process." in y.decode('ascii') and os.stat(
                             "logz.txt").st_size > 0:
-                        status = 1
                         file = self.file_name + ".txt"
+                        os.rename("logz.txt", file)
+                        time.sleep(1)
+                        status = 1
                     y = y.decode('ascii')
                     z = z.decode('ascii')
                     sequence = y + z
@@ -173,11 +172,11 @@ if __name__ == '__main__':
     screen_shot_time = 13
     screen_shot_thread_time = 20
     server = Server('http://localhost:8000/api/', vbox)
-    current_dir = "C:/Users/MA/Desktop/work/vm-agent-server/agent/"
-    wao_current_dir = "C:\\Users\\MA\\Desktop\\work\\vm-agent-server\\agent\\"  # wao needs win mode path
-    this_pin_path = "C:/Users/MA/Desktop/work/api-seq-tools/pin-2.14-71313-msvc9-windows/"
-    this_wao_path = "C:/Users/MA/Desktop/work/api-seq-tools/winapioverride32_bin_6.3.0/"
-    wao_pin = 0   # 0 for wao and 1 for pin
+    current_dir = "agent/"
+    wao_current_dir = "agent\\"  # wao needs win mode path
+    this_pin_path = "pin-2.14-71313-msvc9-windows/"
+    this_wao_path = "winapioverride32_bin_6.3.0/"
+    wao_pin = 0  # 0 for wao and 1 for pin
     response = None
     file = None
     screen_shot = None
